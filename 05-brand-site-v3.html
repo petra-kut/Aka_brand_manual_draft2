@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Brand manuál Akademie Nevypusť duši — strategický rámec značky pro firemní program péče o duševní zdraví.">
+<title>Akademie · Brand Manuál v3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #4A2B6E;
+  --purple-light: #6E4A8E;
+  --purple-deep: #2F1B47;
+  --cream: #F5EFE8;
+  --cream-deep: #EBE3D7;
+  --coral: #E37A4A;
+  --sage: #7A9B7A;
+  --dark: #1F2A37;
+  --muted: #6B7280;
+  --white: #FFFFFF;
+  --focus: #FFA500;
+  --nav-height: 64px;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: 1.75rem;
+  --fs-2xl: 2.5rem;
+  --fs-3xl: clamp(2.5rem, 5vw, 3.5rem);
+  --fs-4xl: clamp(3rem, 8vw, 6rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 100%; scroll-padding-top: var(--nav-height); }
+body {
+  font-family: 'Inter', 'Calibri', system-ui, -apple-system, sans-serif;
+  background: var(--cream); color: var(--dark);
+  line-height: 1.55; font-size: var(--fs-base);
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 9999;
+  background: var(--purple); color: var(--cream);
+  padding: 0.75rem 1.5rem; font-weight: 700; text-decoration: none;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }
+
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media (prefers-contrast: more) {
+  :root { --muted: #4B5563; --cream-deep: #D6CFC0; }
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+/* ============ TOP NAVIGATION ============ */
+.topnav {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--nav-height); z-index: 200;
+  background: var(--cream); border-bottom: 1px solid var(--cream-deep);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.topnav-inner {
+  max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+  height: 100%; display: flex; align-items: center;
+  justify-content: space-between; gap: 2rem;
+}
+.topnav-logo {
+  display: inline-flex; align-items: center; gap: 0.625rem;
+  text-decoration: none; color: var(--purple);
+  font-weight: 800; font-size: var(--fs-base); letter-spacing: -0.01em;
+  flex-shrink: 0;
+}
+.topnav-logo .balloon {
+  width: 1.5rem; height: 1.75rem; display: inline-block; position: relative;
+}
+.topnav-logo .balloon::before {
+  content: ''; position: absolute; left: 0; top: 0;
+  width: 1.5rem; height: 1.4rem; border-radius: 50%;
+  background: var(--purple);
+}
+.topnav-logo .balloon::after {
+  content: ''; position: absolute; left: 50%; top: 1.3rem;
+  transform: translateX(-50%); width: 0.5rem; height: 0.25rem;
+  background: var(--coral);
+}
+.topnav-logo:hover { color: var(--coral); }
+.topnav-logo .sub {
+  font-weight: 500; color: var(--muted); font-size: var(--fs-sm);
+}
+.topnav-links {
+  display: flex; gap: 0.25rem; align-items: center;
+}
+.topnav-links a {
+  text-decoration: none; color: var(--dark);
+  font-size: var(--fs-sm); font-weight: 600;
+  padding: 0.5rem 0.875rem; border-radius: 6px;
+  min-height: 44px; display: flex; align-items: center;
+  transition: background 0.15s, color 0.15s;
+}
+.topnav-links a:hover { background: var(--cream-deep); }
+.topnav-links a[aria-current="true"] {
+  background: var(--purple); color: var(--cream);
+}
+.mobile-toggle {
+  display: none; background: none; border: none; cursor: pointer;
+  width: 44px; height: 44px; align-items: center; justify-content: center;
+  color: var(--purple); font-size: 1.5rem; font-family: inherit;
+}
+
+/* Account for fixed top nav */
+body { padding-top: var(--nav-height); }
+section, header { scroll-margin-top: var(--nav-height); }
+
+/* ============ PROGRESS BAR ============ */
+.progress-bar {
+  position: fixed; top: var(--nav-height); left: 0; height: 3px;
+  background: var(--coral); z-index: 199;
+  width: 0%; transition: width 0.15s;
+}
+
+/* ============ SIDE NAV DOTS ============ */
+nav.side {
+  position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%);
+  z-index: 100; display: flex; flex-direction: column; gap: 0.625rem;
+}
+nav.side a {
+  width: 0.75rem; height: 0.75rem; border-radius: 50%;
+  background: var(--cream-deep); border: 2px solid var(--purple);
+  display: block; position: relative; text-decoration: none;
+  transition: all 0.2s;
+}
+nav.side a[aria-current="true"] { background: var(--purple); transform: scale(1.5); }
+nav.side a:hover::after, nav.side a:focus-visible::after {
+  content: attr(data-label);
+  position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%);
+  background: var(--purple); color: var(--cream);
+  padding: 0.25rem 0.75rem; border-radius: 4px; font-size: var(--fs-xs);
+  white-space: nowrap; font-weight: 600;
+}
+
+/* ============ HERO ============ */
+.hero {
+  min-height: calc(100vh - var(--nav-height));
+  background: var(--purple); color: var(--cream);
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden; padding: 5rem 2rem;
+}
+.hero::before, .hero::after { content: ''; position: absolute; border-radius: 50%; }
+.hero::before {
+  top: -6rem; right: -3rem; width: 20rem; height: 20rem;
+  background: var(--coral); opacity: 0.85;
+}
+.hero::after {
+  top: 5rem; right: 5rem; width: 11rem; height: 11rem;
+  background: var(--purple-light); opacity: 0.6;
+}
+.hero-content { position: relative; z-index: 2; }
+.eyebrow {
+  font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.2em;
+  color: var(--coral); text-transform: uppercase; margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-size: var(--fs-4xl); font-weight: 800;
+  line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 1.5rem;
+}
+.hero h1 .accent { color: var(--coral); display: block; }
+.hero .lead {
+  font-size: var(--fs-lg); font-style: italic; color: var(--cream-deep);
+  max-width: 45rem; margin-bottom: 3rem; line-height: 1.5;
+}
+.hero .promise {
+  border-left: 4px solid var(--coral);
+  padding: 1rem 0 1rem 1.5rem; margin: 0 0 3rem; max-width: 45rem;
+}
+.hero .promise-label {
+  font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.2em;
+  color: var(--coral); margin-bottom: 0.5rem;
+}
+.hero .promise-text {
+  font-size: var(--fs-xl); font-weight: 700; line-height: 1.3; color: var(--cream);
+}
+.hero .meta {
+  border-top: 1px solid rgba(245, 239, 232, 0.3);
+  padding-top: 1.5rem; font-size: var(--fs-sm); color: var(--cream-deep);
+  display: flex; gap: 2rem; flex-wrap: wrap;
+}
+.hero .meta strong { color: var(--cream); font-weight: 600; }
+
+/* ============ SECTIONS ============ */
+section.page { padding: 6rem 2rem; position: relative; }
+section.page.dark { background: var(--purple); color: var(--cream); }
+section.page.cream-deep { background: var(--cream-deep); }
+.section-eyebrow {
+  font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.2em;
+  color: var(--coral); text-transform: uppercase; margin-bottom: 1rem;
+}
+.section-title {
+  font-size: var(--fs-3xl); font-weight: 800;
+  line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.02em;
+}
+.section-lead {
+  font-size: var(--fs-md); font-style: italic; color: var(--muted);
+  margin-bottom: 4rem; max-width: 45rem;
+}
+section.page.dark .section-lead { color: var(--cream-deep); }
+
+/* ============ ARCHITECTURE ============ */
+.arch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem; }
+.arch-card {
+  background: var(--white); padding: 2rem; border-radius: 0.75rem;
+  border-left: 4px solid var(--purple);
+}
+.arch-card.aka { border-left-color: var(--coral); }
+.arch-card h3 {
+  font-size: var(--fs-sm); font-weight: 700; letter-spacing: 0.15em;
+  color: var(--purple); text-transform: uppercase; margin-bottom: 0.5rem;
+}
+.arch-card.aka h3 { color: var(--coral); }
+.arch-card .name { font-size: var(--fs-xl); font-weight: 700; margin-bottom: 1.5rem; }
+.arch-card dl {
+  display: grid; grid-template-columns: 8rem 1fr; gap: 0.75rem 1rem; font-size: var(--fs-sm);
+}
+.arch-card dt { font-weight: 600; color: var(--muted); }
+
+.stool { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.stool-leg {
+  background: var(--cream); padding: 2rem; border-radius: 0.75rem;
+  border-top: 4px solid var(--coral);
+}
+.stool-leg h4 { font-size: var(--fs-md); font-weight: 700; color: var(--purple); margin-bottom: 0.75rem; }
+.stool-leg p { color: var(--dark); font-size: var(--fs-sm); }
+.stool-leg .source { margin-top: 1rem; font-size: var(--fs-xs); color: var(--muted); font-style: italic; }
+
+/* ============ ROADMAP (interactive) ============ */
+.roadmap {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  position: relative; margin-top: 2rem; list-style: none;
+}
+.roadmap::before {
+  content: ''; position: absolute; top: 2.25rem; left: 5%; right: 5%;
+  height: 2px; background: var(--cream-deep); z-index: 0;
+}
+section.dark .roadmap::before { background: var(--purple-light); opacity: 0.5; }
+.roadmap-stop { position: relative; z-index: 1; text-align: center; }
+.roadmap-dot {
+  width: 1.75rem; height: 1.75rem; border-radius: 50%;
+  background: var(--purple); border: 6px solid var(--cream);
+  margin: 0 auto 1rem;
+}
+section.dark .roadmap-dot { border-color: var(--purple); }
+.roadmap-stop.future .roadmap-dot { background: var(--coral); }
+.roadmap-year { font-size: var(--fs-xl); font-weight: 800; color: var(--cream); margin-bottom: 0.25rem; }
+section.dark .roadmap-year { color: var(--coral); }
+.roadmap-label { font-size: var(--fs-md); font-weight: 700; margin-bottom: 1rem; }
+.roadmap-list {
+  font-size: var(--fs-sm); color: var(--cream-deep); text-align: left;
+  list-style: none; padding: 1rem; background: rgba(245, 239, 232, 0.1);
+  border-radius: 0.5rem;
+}
+.roadmap-list li { margin-bottom: 0.5rem; padding-left: 0.75rem; position: relative; }
+.roadmap-list li::before { content: '▸'; position: absolute; left: 0; color: var(--coral); }
+
+/* ============ GOLDEN CIRCLE ============ */
+.golden { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.golden-circles { position: relative; aspect-ratio: 1; max-width: 28rem; }
+.golden-ring {
+  position: absolute; border-radius: 50%; display: flex;
+  align-items: flex-start; justify-content: center; padding-top: 1rem;
+  font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.2em;
+}
+.golden-ring.what { inset: 0; background: var(--cream-deep); color: var(--muted); }
+.golden-ring.how { inset: 20%; background: var(--coral); color: var(--cream); }
+.golden-ring.why {
+  inset: 40%; background: var(--purple); color: var(--cream);
+  align-items: center; padding-top: 0; flex-direction: column;
+}
+.golden-ring.why .stage { font-size: var(--fs-md); letter-spacing: 0.25em; }
+.golden-ring.why .start { font-size: 0.625rem; opacity: 0.8; margin-top: 0.25rem; letter-spacing: 0.15em; }
+.golden-content > div { margin-bottom: 2rem; }
+.golden-label {
+  font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.2em;
+  margin-bottom: 0.75rem; display: inline-block;
+  padding: 0.25rem 0.75rem; border-radius: 0.75rem;
+}
+.golden-label.why { background: var(--purple); color: var(--cream); }
+.golden-label.how { background: var(--coral); color: var(--cream); }
+.golden-label.what { background: var(--muted); color: var(--cream); }
+.golden-quote { font-size: var(--fs-md); font-weight: 700; line-height: 1.4; margin-bottom: 0.5rem; }
+.golden-sub { font-style: italic; color: var(--coral); font-size: var(--fs-sm); }
+.pillar { margin-bottom: 1rem; }
+.pillar-name { font-size: var(--fs-sm); font-weight: 700; }
+.pillar-desc { font-size: var(--fs-sm); color: var(--muted); }
+.what-list { font-size: var(--fs-sm); }
+.what-list li { padding-left: 1rem; position: relative; margin-bottom: 0.375rem; list-style: none; }
+.what-list li::before { content: '▸'; position: absolute; left: 0; color: var(--coral); }
+
+.triplet {
+  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-deep) 100%);
+  color: var(--cream); padding: 4rem 3rem; border-radius: 1rem;
+  margin-top: 4rem; text-align: center; position: relative; overflow: hidden;
+}
+.triplet::before {
+  content: ''; position: absolute; top: -3rem; right: -3rem;
+  width: 12rem; height: 12rem; border-radius: 50%;
+  background: var(--coral); opacity: 0.5;
+}
+.triplet-label {
+  font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.2em;
+  color: var(--coral); margin-bottom: 1.5rem; position: relative;
+}
+.triplet-quote { font-size: var(--fs-2xl); font-weight: 800; line-height: 1.3; position: relative; margin-bottom: 1rem; }
+.triplet-source { font-size: var(--fs-sm); color: var(--cream-deep); font-style: italic; position: relative; }
+
+/* ============ VALUES ============ */
+.values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.value-card { background: var(--white); border-radius: 0.75rem; overflow: hidden; border: 1px solid var(--cream-deep); }
+.value-card header { padding: 2rem; color: var(--cream); }
+.value-card header.purple { background: var(--purple); }
+.value-card header.coral { background: var(--coral); }
+.value-card header.sage { background: var(--sage); }
+.value-card .number { font-size: 4rem; font-weight: 800; line-height: 1; }
+.value-card .priority { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.2em; margin-top: 0.5rem; opacity: 0.9; }
+.value-card .body { padding: 1.75rem 2rem; }
+.value-card .value-name { font-size: var(--fs-md); font-weight: 700; margin-bottom: 1.5rem; line-height: 1.3; }
+.value-card .value-name .accent { color: var(--purple); }
+.value-card header.coral ~ .body .value-name .accent { color: var(--coral); }
+.value-card header.sage ~ .body .value-name .accent { color: var(--sage); }
+.value-card .label { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.15em; color: var(--coral); margin-bottom: 0.5rem; }
+.value-card .quote { font-style: italic; font-size: var(--fs-sm); margin-bottom: 1.25rem; }
+.value-card .diff-list { font-size: var(--fs-xs); color: var(--muted); }
+.value-card .diff-list li { list-style: none; padding-left: 0.75rem; position: relative; margin-bottom: 0.25rem; }
+.value-card .diff-list li::before { content: '·'; position: absolute; left: 0; color: var(--coral); font-weight: 700; }
+.value-card .note { font-size: var(--fs-xs); color: var(--muted); font-style: italic; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--cream-deep); }
+
+/* ============ AUDIENCES ============ */
+.audiences { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.audience-card { background: var(--white); border-radius: 0.75rem; overflow: hidden; border: 1px solid var(--cream-deep); }
+.audience-card header { padding: 1.5rem 1.75rem; color: var(--cream); display: flex; justify-content: space-between; align-items: center; }
+.audience-card header.purple { background: var(--purple); }
+.audience-card header.coral { background: var(--coral); }
+.audience-card header.sage { background: var(--sage); }
+.audience-card header .num { font-size: var(--fs-xl); font-weight: 800; }
+.audience-card header .priority { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.15em; text-align: right; }
+.audience-card .body { padding: 1.75rem; }
+.audience-card .role { font-size: var(--fs-md); font-weight: 700; margin-bottom: 0.5rem; }
+.audience-card .role-sub { font-size: var(--fs-sm); color: var(--muted); font-style: italic; margin-bottom: 1.25rem; }
+.audience-card .small-label { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.15em; color: var(--coral); margin-bottom: 0.375rem; margin-top: 1rem; }
+.audience-card .item { font-size: var(--fs-sm); }
+.audience-card .quote { font-style: italic; font-size: var(--fs-sm); background: var(--cream); padding: 0.875rem; border-radius: 0.375rem; border-left: 3px solid var(--coral); margin-top: 0.5rem; }
+.audience-card .note { font-size: var(--fs-xs); color: var(--muted); font-style: italic; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--cream-deep); }
+
+/* ============ SLIDERS ============ */
+.tonalita-shortcut {
+  text-align: center; margin: 3rem 0 4rem; padding: 2rem;
+  background: rgba(245, 239, 232, 0.08); border-radius: 1rem;
+}
+.tonalita-shortcut .label { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.2em; color: var(--coral); margin-bottom: 0.75rem; }
+.tonalita-shortcut .text { font-size: var(--fs-2xl); font-weight: 800; font-style: italic; }
+.sliders { max-width: 57.5rem; margin: 0 auto; }
+.slider { display: grid; grid-template-columns: 1fr 30rem 1fr; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
+.slider-label {
+  font-size: var(--fs-sm); font-weight: 600; padding: 0.5rem 1rem;
+  border-radius: 4px; display: inline-block; text-align: center;
+}
+.slider-label.right { justify-self: start; }
+.slider-label.left { justify-self: end; }
+.slider-label.muted { color: var(--cream-deep); opacity: 0.6; }
+.slider-label.boxed { border: 2px solid var(--cream); color: var(--cream); font-weight: 700; }
+.slider-track { position: relative; height: 2rem; display: flex; align-items: center; justify-content: center; }
+.slider-line { width: 100%; height: 2px; background: var(--cream); position: relative; }
+.slider-line::before, .slider-line::after { content: ''; position: absolute; width: 2px; height: 0.875rem; background: var(--cream); top: -0.375rem; }
+.slider-line::before { left: 0; }
+.slider-line::after { right: 0; }
+.slider-line .mid { content: ''; position: absolute; width: 2px; height: 0.625rem; background: var(--cream); top: -0.25rem; left: 50%; transform: translateX(-50%); }
+.slider-marker { position: absolute; width: 1.375rem; height: 1.625rem; background: var(--coral); border-radius: 2px; top: -0.75rem; }
+.imprint { text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(245, 239, 232, 0.08); border-radius: 0.75rem; }
+.imprint .label { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.2em; color: var(--coral); margin-bottom: 0.75rem; }
+.imprint .quote { font-size: var(--fs-md); font-weight: 700; font-style: italic; line-height: 1.4; }
+
+/* ============ COMPETITIVE MAPS — TABS ============ */
+.maps-section { margin-bottom: 4rem; }
+.maps-tabs {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+  margin-bottom: 1.5rem; padding: 0.5rem;
+  background: var(--white); border-radius: 0.75rem;
+}
+.maps-tab {
+  flex: 1; min-width: 220px; min-height: 60px;
+  background: transparent; border: 2px solid transparent;
+  font-family: inherit; font-size: var(--fs-sm); font-weight: 600;
+  padding: 0.75rem 1rem; border-radius: 0.5rem;
+  cursor: pointer; text-align: left; color: var(--dark);
+  transition: all 0.2s;
+  display: flex; flex-direction: column; gap: 0.25rem;
+}
+.maps-tab:hover { background: var(--cream); }
+.maps-tab[aria-selected="true"] {
+  background: var(--purple); color: var(--cream);
+}
+.maps-tab .tab-num {
+  font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.15em;
+  opacity: 0.7;
+}
+.maps-tab .tab-name { font-size: var(--fs-base); font-weight: 700; }
+.maps-tab .tab-axes { font-size: var(--fs-xs); opacity: 0.8; }
+
+.maps-panel { display: none; background: var(--white); border-radius: 0.75rem; padding: 2rem; }
+.maps-panel.active { display: block; }
+.maps-panel-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 1.5rem; gap: 2rem; flex-wrap: wrap;
+}
+.maps-panel-header h3 { font-size: var(--fs-lg); font-weight: 700; margin-bottom: 0.5rem; }
+.maps-panel-header p { font-size: var(--fs-sm); color: var(--muted); max-width: 36rem; }
+.maps-panel-svg { width: 100%; height: auto; max-width: 100%; }
+.maps-panel-summary {
+  margin-top: 1.5rem; padding: 1rem 1.25rem;
+  background: var(--cream); border-left: 3px solid var(--coral);
+  border-radius: 0.375rem; font-size: var(--fs-sm); font-style: italic;
+}
+
+/* ============ THREE NEGATIONS ============ */
+.three-negations {
+  background: var(--white); padding: 2.5rem 3rem; border-radius: 1rem;
+  margin: 3rem 0 4rem; border-left: 6px solid var(--coral);
+}
+.three-negations h3 { font-size: var(--fs-lg); font-weight: 700; margin-bottom: 1.5rem; }
+.three-negations .neg-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; list-style: none; }
+.three-negations .neg-item { border-top: 3px solid var(--purple); padding-top: 1rem; }
+.three-negations .neg-title { font-size: var(--fs-md); font-weight: 700; color: var(--purple); margin-bottom: 0.5rem; }
+.three-negations .neg-desc { font-size: var(--fs-sm); color: var(--muted); }
+
+/* ============ FILTER + COMP CARDS ============ */
+.filter-section { margin-top: 3rem; }
+.filter-controls {
+  display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem;
+  padding: 1.5rem; background: var(--white); border-radius: 0.75rem;
+}
+.filter-label {
+  font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.15em;
+  color: var(--muted); width: 100%; margin-bottom: 0.5rem;
+}
+.filter-btn {
+  border: 2px solid var(--cream-deep); background: transparent;
+  color: var(--dark); font-size: var(--fs-sm); font-weight: 600;
+  padding: 0.5rem 1rem; border-radius: 999px;
+  font-family: inherit; min-height: 44px;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  cursor: pointer; transition: all 0.2s;
+}
+.filter-btn:hover { background: var(--cream); }
+.filter-btn[aria-pressed="true"] {
+  background: var(--purple); color: var(--cream); border-color: var(--purple);
+}
+.filter-btn .count { background: rgba(255, 255, 255, 0.2); padding: 0.125rem 0.5rem; border-radius: 999px; font-size: var(--fs-xs); }
+.filter-btn[aria-pressed="false"] .count { background: var(--cream-deep); color: var(--muted); }
+
+.comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 1rem; }
+.comp-card {
+  background: var(--white); border-radius: 0.75rem; padding: 1.5rem;
+  border-left: 4px solid var(--cream-deep); transition: all 0.2s;
+}
+.comp-card[data-cat="direct"] { border-left-color: var(--purple); }
+.comp-card[data-cat="complement"] { border-left-color: var(--sage); }
+.comp-card[data-cat="spojenec"] { border-left-color: var(--coral); }
+.comp-card[data-cat="model"] { border-left-color: var(--purple-light); }
+.comp-card[data-cat="anti"] { border-left-color: var(--muted); }
+.comp-card.hidden { display: none; }
+.comp-cat {
+  font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+}
+.comp-card[data-cat="direct"] .comp-cat { color: var(--purple); }
+.comp-card[data-cat="complement"] .comp-cat { color: var(--sage); }
+.comp-card[data-cat="spojenec"] .comp-cat { color: var(--coral); }
+.comp-card[data-cat="model"] .comp-cat { color: var(--purple-light); }
+.comp-card[data-cat="anti"] .comp-cat { color: var(--muted); }
+.comp-name { font-size: var(--fs-md); font-weight: 700; margin-bottom: 0.375rem; }
+.comp-desc { font-size: var(--fs-sm); color: var(--muted); margin-bottom: 1rem; }
+.comp-toggle {
+  background: var(--cream); color: var(--purple); border: none;
+  padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;
+  font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.1em;
+  font-family: inherit; display: inline-flex; align-items: center; gap: 0.5rem;
+  min-height: 44px;
+}
+.comp-toggle:hover { background: var(--cream-deep); }
+.comp-toggle .arrow { transition: transform 0.2s; }
+.comp-toggle[aria-expanded="true"] .arrow { transform: rotate(180deg); }
+.comp-detail {
+  display: none; margin-top: 1rem; padding-top: 1rem;
+  border-top: 1px solid var(--cream-deep); font-size: var(--fs-sm);
+}
+.comp-detail.show { display: block; }
+.comp-detail .pos-label { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.15em; color: var(--coral); margin-bottom: 0.5rem; }
+.comp-detail .pos-text { font-style: italic; line-height: 1.5; }
+
+/* ============ COMMUNICATION ============ */
+.do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+.dd-card { background: var(--white); padding: 2rem; border-radius: 0.75rem; }
+.dd-card.yes { border-top: 4px solid var(--sage); }
+.dd-card.no { border-top: 4px solid var(--coral); }
+.dd-card h4 { font-size: var(--fs-base); font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+.dd-card.yes h4::before { content: '✓'; color: var(--sage); font-size: var(--fs-lg); }
+.dd-card.no h4::before { content: '✕'; color: var(--coral); font-size: var(--fs-lg); }
+.dd-card ul { list-style: none; }
+.dd-card li { font-size: var(--fs-sm); padding: 0.5rem 0; border-bottom: 1px solid var(--cream); }
+.dd-card li:last-child { border-bottom: none; }
+.dd-card.no li { color: var(--muted); text-decoration: line-through; }
+
+.hero-claim {
+  background: var(--purple); color: var(--cream);
+  padding: 4rem; border-radius: 1rem; text-align: center;
+  margin: 2rem 0 3rem;
+}
+.hero-claim .label { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.2em; color: var(--coral); margin-bottom: 1rem; }
+.hero-claim .quote { font-size: var(--fs-3xl); font-weight: 800; line-height: 1.2; letter-spacing: -0.01em; }
+.hero-claim .tagline { margin-top: 1rem; font-style: italic; color: var(--cream-deep); font-size: var(--fs-sm); }
+.hero-per-audience { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 4rem; }
+.hero-row { background: var(--white); padding: 1.5rem; border-radius: 0.5rem; }
+.hero-row.row-purple { border-top: 3px solid var(--purple); }
+.hero-row.row-coral { border-top: 3px solid var(--coral); }
+.hero-row.row-sage { border-top: 3px solid var(--sage); }
+.hero-row .hr-label { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.15em; margin-bottom: 0.5rem; }
+.hero-row.row-purple .hr-label { color: var(--purple); }
+.hero-row.row-coral .hr-label { color: var(--coral); }
+.hero-row.row-sage .hr-label { color: var(--sage); }
+.hero-row .hr-text { font-size: var(--fs-sm); font-style: italic; }
+
+/* ============ VISUAL IDENTITY ============ */
+.palette { display: grid; grid-template-columns: repeat(8, 1fr); gap: 0.75rem; margin-bottom: 3rem; }
+.swatch { aspect-ratio: 1; border-radius: 0.5rem; padding: 0.75rem; display: flex; flex-direction: column; justify-content: flex-end; }
+.swatch.purple { background: var(--purple); color: var(--cream); }
+.swatch.purple-light { background: var(--purple-light); color: var(--cream); }
+.swatch.cream { background: var(--cream); color: var(--dark); border: 1px solid var(--cream-deep); }
+.swatch.cream-deep { background: var(--cream-deep); color: var(--dark); }
+.swatch.coral { background: var(--coral); color: var(--cream); }
+.swatch.sage { background: var(--sage); color: var(--cream); }
+.swatch.dark { background: var(--dark); color: var(--cream); }
+.swatch.muted { background: var(--muted); color: var(--cream); }
+.swatch .role { font-size: var(--fs-xs); font-weight: 700; }
+.swatch .hex { font-size: var(--fs-xs); font-family: monospace; opacity: 0.85; }
+.typo-demo { background: var(--white); padding: 3rem; border-radius: 0.75rem; margin-bottom: 1.5rem; }
+.typo-h1 { font-size: var(--fs-2xl); font-weight: 800; letter-spacing: -0.02em; }
+.typo-h2 { font-size: var(--fs-xl); font-weight: 700; margin-top: 1.5rem; }
+.typo-body { font-size: var(--fs-base); margin-top: 1rem; line-height: 1.6; }
+.typo-meta { font-size: var(--fs-xs); letter-spacing: 0.15em; color: var(--muted); font-weight: 600; margin-top: 1.5rem; }
+
+/* ============ PACKAGES ============ */
+.packages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.package { background: var(--white); border-radius: 0.75rem; padding: 2rem; border-top: 6px solid var(--cream-deep); }
+.package.basic { border-top-color: var(--sage); }
+.package.premium { border-top-color: var(--purple); }
+.package.plus { border-top-color: var(--coral); }
+.package .tier { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 0.5rem; }
+.package .name { font-size: var(--fs-xl); font-weight: 800; margin-bottom: 0.5rem; }
+.package .duration { font-size: var(--fs-sm); color: var(--muted); font-style: italic; margin-bottom: 1.5rem; }
+.package .goal { font-size: var(--fs-sm); line-height: 1.6; }
+
+/* ============ ETHICS ============ */
+.ethics-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.ethic-item { background: rgba(255,255,255,0.05); border-radius: 0.5rem; padding: 1.25rem 1.5rem; border-left: 3px solid var(--coral); }
+.ethic-item h4 { font-size: var(--fs-base); font-weight: 700; margin-bottom: 0.375rem; color: var(--cream); }
+.ethic-item p { font-size: var(--fs-sm); color: var(--cream-deep); line-height: 1.5; }
+
+/* ============ BACK TO TOP ============ */
+.back-to-top {
+  position: fixed; bottom: 2rem; left: 2rem; z-index: 150;
+  width: 3rem; height: 3rem; border-radius: 50%;
+  background: var(--purple); color: var(--cream);
+  border: none; cursor: pointer; font-size: 1.25rem;
+  display: none; align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s, background 0.2s;
+}
+.back-to-top.show { display: flex; }
+.back-to-top:hover { background: var(--purple-deep); transform: translateY(-2px); }
+
+/* ============ FOOTER ============ */
+footer { background: var(--purple-deep); color: var(--cream); padding: 5rem 2rem; }
+footer .container { text-align: center; }
+footer h2 { font-size: var(--fs-xl); font-weight: 700; margin-bottom: 1rem; }
+footer .colophon { max-width: 45rem; margin: 0 auto 2rem; font-size: var(--fs-sm); color: var(--cream-deep); line-height: 1.7; font-style: italic; }
+footer .meta { font-size: var(--fs-xs); color: var(--cream-deep); opacity: 0.6; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(245,239,232,0.2); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1100px) {
+  .topnav-links { display: none; }
+  .topnav-links.open { display: flex; flex-direction: column; position: absolute; top: var(--nav-height); right: 0; background: var(--cream); padding: 1rem; border: 1px solid var(--cream-deep); border-radius: 0 0 0 0.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+  .topnav-links.open a { width: 100%; }
+  .mobile-toggle { display: inline-flex; }
+}
+@media (max-width: 900px) {
+  nav.side { display: none; }
+  .arch-grid, .stool, .roadmap, .values, .audiences, .do-dont,
+  .ethics-list, .packages, .golden,
+  .three-negations .neg-list, .hero-per-audience,
+  .maps-panel-header { grid-template-columns: 1fr; }
+  .roadmap::before { display: none; }
+  .palette { grid-template-columns: repeat(4, 1fr); }
+  .slider { grid-template-columns: 1fr; }
+  .slider-track { order: 2; }
+  .slider-label.left, .slider-label.right { justify-self: center; }
+  section.page { padding: 4rem 1.5rem; }
+  .container { padding: 0 1.5rem; }
+  .hero { padding: 4rem 1.5rem; }
+  .hero h1 { font-size: var(--fs-3xl); }
+  .triplet { padding: 3rem 1.5rem; }
+  .triplet-quote { font-size: var(--fs-xl); }
+  .topnav-inner { padding: 0 1.5rem; }
+  .topnav-logo .sub { display: none; }
+}
+
+@media print {
+  .topnav, nav.side, .progress-bar, .filter-controls, .comp-toggle, .back-to-top, .maps-tabs { display: none; }
+  .maps-panel { display: block !important; page-break-after: always; }
+  section.page { padding: 2rem; page-break-after: always; }
+  .hero { min-height: auto; padding: 2rem; }
+  body { padding-top: 0; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Přeskočit na hlavní obsah</a>
+
+<!-- ============ TOP NAVIGATION ============ -->
+<header class="topnav" role="banner">
+  <div class="topnav-inner">
+    <a href="#hero" class="topnav-logo" aria-label="Akademie · Brand Manuál — zpět na úvod">
+      <span class="balloon" aria-hidden="true"></span>
+      <span>Akademie</span>
+      <span class="sub">· Brand Manuál</span>
+    </a>
+    <nav class="topnav-links" id="topnavLinks" aria-label="Hlavní navigace">
+      <a href="#identita">Identita</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#golden">Proč/Jak/Co</a>
+      <a href="#hodnoty">Hodnoty</a>
+      <a href="#audience">Audience</a>
+      <a href="#osobnost">Osobnost</a>
+      <a href="#pozice">Konkurence</a>
+      <a href="#komunikace">Komunikace</a>
+      <a href="#produkt">Produkt</a>
+    </nav>
+    <button class="mobile-toggle" id="mobileToggle" aria-expanded="false" aria-controls="topnavLinks" aria-label="Otevřít menu">☰</button>
+  </div>
+</header>
+
+<div class="progress-bar" id="progress" role="progressbar" aria-label="Postup čtení" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+<nav class="side" aria-label="Postup čtení">
+  <a href="#hero" data-label="Úvod" aria-label="Úvod"></a>
+  <a href="#identita" data-label="Identita" aria-label="Identita"></a>
+  <a href="#roadmap" data-label="Roadmap" aria-label="Roadmap"></a>
+  <a href="#golden" data-label="Proč/Jak/Co" aria-label="Proč Jak Co"></a>
+  <a href="#hodnoty" data-label="Hodnoty" aria-label="Hodnoty"></a>
+  <a href="#audience" data-label="Audience" aria-label="Audience"></a>
+  <a href="#osobnost" data-label="Osobnost" aria-label="Osobnost"></a>
+  <a href="#pozice" data-label="Konkurence" aria-label="Konkurence"></a>
+  <a href="#komunikace" data-label="Komunikace" aria-label="Komunikace"></a>
+  <a href="#vizual" data-label="Vizuál" aria-label="Vizuál"></a>
+  <a href="#produkt" data-label="Produkt" aria-label="Produkt"></a>
+  <a href="#hranice" data-label="Hranice" aria-label="Hranice"></a>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-content container">
+    <p class="eyebrow">Brand manuál · verze 3.0 · 2026-06-03</p>
+    <h1>Akademie<span class="accent">brand manuál</span></h1>
+    <p class="lead">Strategický rámec značky Akademie pro firmy. Když je tlak nebo nejasnost, vrať se sem.</p>
+
+    <blockquote class="promise" aria-label="Hlavní promise značky">
+      <p class="promise-label">PROMISE</p>
+      <p class="promise-text">„Pomáháme firmám vytvářet kulturu, ve které lidé nemusí vypustit duši."</p>
+    </blockquote>
+
+    <div class="meta">
+      <p><strong>Připravila:</strong> Petra Kutálková + Claude (human-in-the-loop)</p>
+      <p><strong>Z dílny:</strong> Nevypusť duši · 10 let péče o duševní zdraví v ČR</p>
+    </div>
+  </div>
+</section>
+
+<!-- 1 · IDENTITA -->
+<section class="page" id="identita" aria-labelledby="h-identita">
+  <div class="container">
+    <p class="section-eyebrow">Kapitola 1</p>
+    <h2 class="section-title" id="h-identita">Identita značky</h2>
+    <p class="section-lead">Akademie je samostatná značka — ale s viditelným endorsementem mateřské Nevypusť duši. Dva brandy, jeden původ.</p>
+
+    <div class="arch-grid">
+      <article class="arch-card">
+        <h3>Mateřská značka</h3>
+        <p class="name">Nevypusť duši</p>
+        <dl>
+          <dt>Právní forma</dt><dd>nezisková organizace</dd>
+          <dt>Mise</dt><dd>destigmatizace duševního zdraví v ČR</dd>
+          <dt>Cílovka</dt><dd>veřejnost, školy, sociální pracovníci</dd>
+          <dt>Tón</dt><dd>lidový, destigmatizační</dd>
+          <dt>Vizuál</dt><dd>hravější, mladý</dd>
+        </dl>
+      </article>
+      <article class="arch-card aka">
+        <h3>Endorsed sub-brand</h3>
+        <p class="name">Akademie</p>
+        <dl>
+          <dt>Forma</dt><dd>komerční vzdělávací rameno NVD</dd>
+          <dt>Mise</dt><dd>duševní zdraví ve firmách jako norma</dd>
+          <dt>Cílovka</dt><dd>firmy (HR, lídr*yně, ESG)</dd>
+          <dt>Tón</dt><dd>profesionální + lidský</dd>
+          <dt>Vizuál</dt><dd>klidnější, dospělejší</dd>
+        </dl>
+      </article>
+    </div>
+
+    <h3 style="font-size: var(--fs-xl); margin-top: 4rem; margin-bottom: 0.5rem;">Tří-nožka identity</h3>
+    <p style="color: var(--muted); margin-bottom: 2rem;">Tři rovnocenné nohy. Žádná nedominuje. Pokud by jedna chyběla, stůl AKA se rozsype.</p>
+
+    <div class="stool">
+      <article class="stool-leg">
+        <h4>Akademická</h4>
+        <p>Scholarly disciplína — čteme studie, aktualizujeme metodiku, publikujeme vlastní zjištění.</p>
+        <p class="source">WHO · ILO · ISO 45003 · COPSOQ III</p>
+      </article>
+      <article class="stool-leg">
+        <h4>Nevypustí</h4>
+        <p>Hodnoty, oddanost tématu, lidský tón, 10+ let důvěryhodnosti.</p>
+        <p class="source">NVD DNA</p>
+      </article>
+      <article class="stool-leg">
+        <h4>Byznysová</h4>
+        <p>Jazyk, kterému CEO a HR rozumí — ROI, ESG, Thriving at Work.</p>
+        <p class="source">Deloitte · MindForward · CSRD</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · ROADMAP -->
+<section class="page dark" id="roadmap" aria-labelledby="h-roadmap">
+  <div class="container">
+    <p class="section-eyebrow">Kapitola 2 · 20 let dopředu</p>
+    <h2 class="section-title" id="h-roadmap">Kam značka směřuje</h2>
+    <p class="section-lead">Akademie není workshop. Je to infrastruktura, kterou postupně budujeme.</p>
+
+    <ol class="roadmap">
+      <li class="roadmap-stop">
+        <div class="roadmap-dot"></div>
+        <p class="roadmap-year">2027</p>
+        <p class="roadmap-label">Zakotvená</p>
+        <ul class="roadmap-list">
+          <li>3 balíčky pilotované u 5–8 firem ČR</li>
+          <li>COPSOQ v česku, 5–8 škál</li>
+          <li>PDSA jako páteř Premium+</li>
+          <li>První 3 case studies</li>
+        </ul>
+      </li>
+      <li class="roadmap-stop">
+        <div class="roadmap-dot"></div>
+        <p class="roadmap-year">2031</p>
+        <p class="roadmap-label">Etablovaná</p>
+        <ul class="roadmap-list">
+          <li>Top 3 značka v ČR</li>
+          <li>50+ firem Premium</li>
+          <li>Vlastní publikace + metodiky</li>
+          <li>ESG integrace</li>
+        </ul>
+      </li>
+      <li class="roadmap-stop">
+        <div class="roadmap-dot"></div>
+        <p class="roadmap-year">2036</p>
+        <p class="roadmap-label">Kategorie</p>
+        <ul class="roadmap-list">
+          <li>Synonymum „MH at work" ČR</li>
+          <li>Rozsah Slovensko</li>
+          <li>AKA Index MH at Work</li>
+          <li>Sektorové verze</li>
+        </ul>
+      </li>
+      <li class="roadmap-stop future">
+        <div class="roadmap-dot"></div>
+        <p class="roadmap-year">2046</p>
+        <p class="roadmap-label">Norma</p>
+        <ul class="roadmap-list">
+          <li>Mluvit o DZ je norma</li>
+          <li>Infrastruktura, ne školení</li>
+          <li>Generační dopad</li>
+          <li>Absolventi v top mgmt</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- 3 · GOLDEN CIRCLE -->
+<section class="page" id="golden" aria-labelledby="h-golden">
+  <div class="container">
+    <p class="section-eyebrow">Kapitola 3 · Sinekův Golden Circle</p>
+    <h2 class="section-title" id="h-golden">Proč / Jak / Co</h2>
+    <p class="section-lead">Začínáme uvnitř — u Proč. Vše ostatní z něj vyplývá.</p>
+
+    <div class="golden">
+      <div class="golden-circles" role="img" aria-label="Tři koncentrické kruhy: Proč uvnitř, Jak ve středu, Co venku.">
+        <div class="golden-ring what" aria-hidden="true">CO</div>
+        <div class="golden-ring how" aria-hidden="true">JAK</div>
+        <div class="golden-ring why" aria-hidden="true">
+          <span class="stage">PROČ</span>
+          <span class="start">START HERE</span>
+        </div>
+      </div>
+
+      <div class="golden-content">
+        <div>
+          <span class="golden-label why">PROČ</span>
+          <p class="golden-quote">„Věříme, že práce může lidi posilovat — ne ničit. A že to je věc nastavení, ne náhody."</p>
+          <p class="golden-sub">Měníme prostředí, ne lidi.</p>
+        </div>
+        <div>
+          <span class="golden-label how">JAK</span>
+          <div class="pillar"><p class="pillar-name">1 · Akademická disciplína</p><p class="pillar-desc">WHO, ISO 45003, COPSOQ. Rešeršujeme, publikujeme.</p></div>
+          <div class="pillar"><p class="pillar-name">2 · Participace a systémový pohled</p><p class="pillar-desc">Design, PDSA cyklus, quick win → ultimátní cíl.</p></div>
+          <div class="pillar"><p class="pillar-name">3 · Byznysový jazyk</p><p class="pillar-desc">ROI, ESG, Thriving at Work — věda použitelná v rozhodování.</p></div>
+        </div>
+        <div>
+          <span class="golden-label what">CO</span>
+          <ul class="what-list">
+            <li>3 balíčky (Basic · Premium · Premium plus)</li>
+            <li>COPSOQ měření před / po</li>
+            <li>Vzdělávání lídr*yně, zaměstnanci, HR</li>
+            <li>Konzultace + audit + BOZP/ESG integrace</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="triplet">
+      <p class="triplet-label">EXTERNÍ TAGLINE · TŘI ÚDERY</p>
+      <p class="triplet-quote">Lidskost. Odbornost.<br>Změna, která vydrží.</p>
+      <p class="triplet-source">Triplet pro web, brožury, sales materiály — kondenzát všech tří hodnot.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · HODNOTY -->
+<section class="page cream-deep" id="hodnoty" aria-labelledby="h-hodnoty">
+  <div class="container">
+    <p class="section-eyebrow">Kapitola 4 · Pod tlakem</p>
+    <h2 class="section-title" id="h-hodnoty">Top 3 hodnoty</h2>
+    <p class="section-lead">Hodnoty nejsou to, co je nám sympatické — jsou to principy, podle kterých rozhodujeme, když je tlak. Hierarchie je závazná.</p>
+
+    <div class="values">
+      <article class="value-card">
+        <header class="purple">
+          <p class="number">1</p><p class="priority">NEJVYŠŠÍ PRIORITA</p>
+        </header>
+        <div class="body">
+          <p class="value-name">Měníme prostředí,<br><span class="accent">ne lidi.</span></p>
+          <p class="label">POD TLAKEM ŘÍKÁ</p>
+          <p class="quote">„Ne. Individuální koučink ten problém neřeší. Začneme u systému."</p>
+          <p class="label">DIFERENCUJE PROTI</p>
+          <ul class="diff-list">
+            <li>Hedepy (individuální terapie)</li>
+            <li>Wellness retreaty</li>
+            <li>EAP poskytovatelé</li>
+          </ul>
+          <p class="note">Bez tohoto je AKA jen wellness firma.</p>
+        </div>
+      </article>
+      <article class="value-card">
+        <header class="coral">
+          <p class="number">2</p><p class="priority">ODBORNÁ KOTVA</p>
+        </header>
+        <div class="body">
+          <p class="value-name">Co funguje,<br><span class="accent">ne co se říká.</span></p>
+          <p class="label">POD TLAKEM ŘÍKÁ</p>
+          <p class="quote">„Ten framework nemá evidenci. Máme tohle z WHO/COPSOQ."</p>
+          <p class="label">DIFERENCUJE PROTI</p>
+          <ul class="diff-list">
+            <li>BE-DNA (Gallup strengths)</li>
+            <li>FBE (manažerské nástroje)</li>
+            <li>Wellness coaches obecně</li>
+          </ul>
+          <p class="note">Bez vědy ztrácíme pozici k CEO/HR.</p>
+        </div>
+      </article>
+      <article class="value-card">
+        <header class="sage">
+          <p class="number">3</p><p class="priority">HLAS Z NVD DNA</p>
+        </header>
+        <div class="body">
+          <p class="value-name">Mluvíme s lidmi<br><span class="accent">jako s lidmi.</span></p>
+          <p class="label">POD TLAKEM ŘÍKÁ</p>
+          <p class="quote">„Čísla mají kontext lidí. Mluvíme upřímně i o tom, co je obtížné."</p>
+          <p class="label">DIFERENCUJE PROTI</p>
+          <ul class="diff-list">
+            <li>Lyra / Modern Health</li>
+            <li>BetterUp (performance)</li>
+            <li>Korporátní ROI rétorika</li>
+          </ul>
+          <p class="note">Tohle dělá AKA dceřinkou NVD.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · AUDIENCE -->
+<section class="page" id="audience" aria-labelledby="h-audience">
+  <div class="container">
+    <p class="section-eyebrow">Kapitola 5 · Komu mluvíme</p>
+    <h2 class="section-title" id="h-audience">Top 3 audiences</h2>
+    <p class="section-lead">Když oslovíme všechny, neoslovíme nikoho. Primary tvoří hodnotu, secondary kupuje, tertiary musí být v souladu.</p>
+
+    <div class="audiences">
+      <article class="audience-card">
+        <header class="purple"><p class="num">1</p><p class="priority">PRIMARY<br>UŽIVATEL</p></header>
+        <div class="body">
+          <p class="role">Teamleader*yně v sandwichi</p>
+          <p class="role-sub">Vede tým 4–20 lidí · střední management</p>
+          <p class="small-label">CO JE TRÁPÍ</p>
+          <p class="item">Tlak shora, očekávání zdola. Vidí, že tým není OK. Na sebe nezbývá čas.</p>
+          <p class="small-label">JAK K NIM MLUVÍME</p>
+          <p class="quote">„Vás. Přímo. Lidsky. Bez motivačních řečí."</p>
+          <p class="note">Emoční jádro AKA.</p>
+        </div>
+      </article>
+      <article class="audience-card">
+        <header class="coral"><p class="num">2</p><p class="priority">SECONDARY<br>BUYER</p></header>
+        <div class="body">
+          <p class="role">HR Business Partner</p>
+          <p class="role-sub">Drží rozpočet na people development</p>
+          <p class="small-label">CO JE TRÁPÍ</p>
+          <p class="item">Fluktuace. Vyhoření středního managementu. CSRD reporting.</p>
+          <p class="small-label">JAK K NIM MLUVÍME</p>
+          <p class="quote">„O leaderech. ROI argumenty, ESG napojení, evidence."</p>
+          <p class="note">Kupuje proto, že AKA pomáhá leaderům.</p>
+        </div>
+      </article>
+      <article class="audience-card">
+        <header class="sage"><p class="num">3</p><p class="priority">TERTIARY<br>NOVÝ BUDGET</p></header>
+        <div class="body">
+          <p class="role">ESG / Sustainability Manager</p>
+          <p class="role-sub">Rostoucí role díky CSRD/ESRS</p>
+          <p class="small-label">CO JE TRÁPÍ</p>
+          <p class="item">Naplnit „S" pilíř smysluplně. Hmatatelný dopad pro reporting.</p>
+          <p class="small-label">JAK K NIM MLUVÍME</p>
+          <p class="quote">„Skrz S pilíř ESRS, měřitelné dopady, evidence."</p>
+          <p class="note">Vstupní brána, nový rozpočet.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · OSOBNOST -->
+<section class="page dark" id="osobnost" aria-labelledby="h-osobnost">
+  <div class="container">
+    <p class="section-eyebrow">Kapitola 6 · Personality Sliders</p>
+    <h2 class="section-title" id="h-osobnost">Osobnost značky</h2>
+    <p class="section-lead">Akademie nestojí na plotě — na každé ose volí stranu. Rámeček označuje stranu, ke které se hlásí.</p>
+
+    <div class="tonalita-shortcut">
+      <p class="label">TONALITA SHORTCUT</p>
+      <p class="text">„Blízký odborný průvodce."</p>
+    </div>
+
+    <div class="sliders" role="group" aria-label="Šest os osobnosti značky">
+      <div class="slider">
+        <span class="slider-label boxed left">LIDSKÝ</span>
+        <div class="slider-track" role="img" aria-label="Marker blízko levé strany — silně lidský">
+          <div class="slider-line"><div class="mid"></div></div>
+          <div class="slider-marker" style="left: 8%;"></div>
+        </div>
+        <span class="slider-label muted right">Odborný</span>
+      </div>
+      <div class="slider">
+        <span class="slider-label boxed left">KLIDNÝ</span>
+        <div class="slider-track" role="img" aria-label="Marker blízko levé strany — silně klidný">
+          <div class="slider-line"><div class="mid"></div></div>
+          <div class="slider-marker" style="left: 8%;"></div>
+        </div>
+        <span class="slider-label muted right">Energický</span>
+      </div>
+      <div class="slider">
+        <span class="slider-label boxed left">VÁŽNÝ</span>
+        <div class="slider-track" role="img" aria-label="Marker blízko levé strany — vážný">
+          <div class="slider-line"><div class="mid"></div></div>
+          <div class="slider-marker" style="left: 15%;"></div>
+        </div>
+        <span class="slider-label muted right">Hravý</span>
+      </div>
+      <div class="slider">
+        <span class="slider-label muted left">Klasický</span>
+        <div class="slider-track" role="img" aria-label="Marker blízko pravé strany — silně současný">
+          <div class="slider-line"><div class="mid"></div></div>
+          <div class="slider-marker" style="left: 82%;"></div>
+        </div>
+        <span class="slider-label boxed right">SOUČASNÝ</span>
+      </div>
+      <div class="slider">
+        <span class="slider-label muted left">Mainstream</span>
+        <div class="slider-track" role="img" aria-label="Marker blízko pravé strany — specializovaný">
+          <div class="slider-line"><div class="mid"></div></div>
+          <div class="slider-marker" style="left: 73%;"></div>
+        </div>
+        <span class="slider-label boxed right">SPECIALIZOVANÝ</span>
+      </div>
+      <div class="slider">
+        <span class="slider-label muted left">Establishment</span>
+        <div class="slider-track" role="img" aria-label="Marker blízko pravé strany — indie">
+          <div class="slider-line"><div class="mid"></div></div>
+          <div class="slider-marker" style="left: 73%;"></div>
+        </div>
+        <span class="slider-label boxed right">INDIE · CHALLENGER</span>
+      </div>
+    </div>
+
+    <div class="imprint">
+      <p class="label">OTISK JEDNOU VĚTOU</p>
+      <p class="quote">„Strongly lidská, klidná a vážná — současná, specializovaná a indie. Žádný kompromis."</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · POZICE — THREE MAPS AS TABS + FILTER -->
+<section class="page cream-deep" id="pozice" aria-labelledby="h-pozice">
+  <div class="container">
+    <p class="section-eyebrow">Kapitola 7 · Konkurence</p>
+    <h2 class="section-title" id="h-pozice">Kde stojíme</h2>
+    <p class="section-lead">Tři mapy konkurence — každá jiné osy, jiný úhel. AKA stojí v top-right kvadrantu napříč všemi.</p>
+
+    <!-- Tabs -->
+    <div class="maps-section">
+      <div class="maps-tabs" role="tablist" aria-label="Tři varianty pozičných map">
+        <button class="maps-tab" role="tab" id="tab-a" aria-selected="true" aria-controls="panel-a" data-tab="a">
+          <span class="tab-num">VARIANTA A</span>
+          <span class="tab-name">Heuristika × Hloubka</span>
+          <span class="tab-axes">Metodika + záběr — primární</span>
+        </button>
+        <button class="maps-tab" role="tab" id="tab-b" aria-selected="false" aria-controls="panel-b" data-tab="b" tabindex="-1">
+          <span class="tab-num">VARIANTA B</span>
+          <span class="tab-name">Reaktivní × Tón</span>
+          <span class="tab-axes">Kdy zasahujeme + jazyk</span>
+        </button>
+        <button class="maps-tab" role="tab" id="tab-c" aria-selected="false" aria-controls="panel-c" data-tab="c" tabindex="-1">
+          <span class="tab-num">VARIANTA C</span>
+          <span class="tab-name">Formát × Dopad</span>
+          <span class="tab-axes">Jak je práce strukturovaná + kam míří</span>
+        </button>
+      </div>
+
+      <!-- PANEL A -->
+      <div class="maps-panel active" id="panel-a" role="tabpanel" aria-labelledby="tab-a">
+        <div class="maps-panel-header">
+          <div>
+            <h3>A · Heuristika × Hloubka — primární mapa</h3>
+            <p>Vědecká kotva metodiky vs. šíře záběru. AKA v top-right „evidence + hloubka MH" kvadrantu — komerčně téměř sama v ČR.</p>
+          </div>
+        </div>
+        <svg class="maps-panel-svg" viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="map-a-title">
+          <title id="map-a-title">Mapa konkurence: Heuristika versus Evidence × Šíře versus Hloubka. AKA leží v pravém horním kvadrantu.</title>
+          <rect width="1000" height="560" fill="#F5EFE8" rx="8"/>
+          <rect x="500" y="40" width="380" height="220" fill="#E37A4A" opacity="0.08"/>
+          <rect x="120" y="40" width="760" height="440" fill="none" stroke="#1F2A37" stroke-width="1.5"/>
+          <line x1="500" y1="40" x2="500" y2="480" stroke="#1F2A37" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="120" y1="260" x2="880" y2="260" stroke="#1F2A37" stroke-width="1" stroke-dasharray="3 3"/>
+          <text x="40" y="55" font-size="11" font-weight="700" fill="#4A2B6E" font-family="Inter">▲ HLOUBKA MH</text>
+          <text x="40" y="490" font-size="11" font-weight="700" fill="#6B7280" font-family="Inter">▼ ŠÍŘE EX</text>
+          <text x="120" y="520" font-size="11" font-weight="700" fill="#6B7280" font-family="Inter">◀ HEURISTIKA</text>
+          <text x="880" y="520" font-size="11" font-weight="700" fill="#4A2B6E" text-anchor="end" font-family="Inter">EVIDENCE ▶</text>
+          <text x="690" y="65" font-size="11" font-weight="700" fill="#E37A4A" text-anchor="middle" font-family="Inter" opacity="0.7">◀ BÍLÉ MÍSTO AKA</text>
+          <!-- AKA -->
+          <circle cx="700" cy="140" r="18" fill="none" stroke="#E37A4A" stroke-width="3"/>
+          <circle cx="700" cy="140" r="11" fill="#4A2B6E"/>
+          <text x="725" y="132" font-size="14" font-weight="700" fill="#4A2B6E" font-family="Inter">AKA</text>
+          <!-- Players -->
+          <circle cx="670" cy="190" r="7" fill="#6B7280"/><text x="682" y="194" font-size="11" font-family="Inter">Calmer</text>
+          <circle cx="740" cy="120" r="7" fill="#7A9B7A"/><text x="685" y="110" font-size="11" font-family="Inter">Mindwell</text>
+          <circle cx="810" cy="95" r="7" fill="#7A9B7A"/><text x="788" y="83" font-size="11" font-family="Inter">NUDZ</text>
+          <circle cx="830" cy="130" r="7" fill="#6B7280"/><text x="755" y="160" font-size="11" font-family="Inter">Lyra (US)</text>
+          <circle cx="785" cy="170" r="7" fill="#6B7280"/><text x="710" y="180" font-size="11" font-family="Inter">Modern Health</text>
+          <circle cx="610" cy="185" r="7" fill="#7A9B7A"/><text x="548" y="190" font-size="11" font-family="Inter">Hedepy</text>
+          <circle cx="630" cy="270" r="7" fill="#6B7280"/><text x="643" y="274" font-size="11" font-family="Inter">Unmind</text>
+          <circle cx="500" cy="105" r="7" fill="#7A9B7A"/><text x="442" y="95" font-size="11" font-style="italic" font-family="Inter">NVD samo</text>
+          <circle cx="410" cy="200" r="7" fill="#7A9B7A"/><text x="423" y="204" font-size="11" font-family="Inter">Loono</text>
+          <circle cx="540" cy="235" r="9" fill="#6E4A8E"/><text x="554" y="240" font-size="12" font-weight="700" font-family="Inter">Soulmio</text>
+          <circle cx="280" cy="345" r="9" fill="#6E4A8E"/><text x="295" y="350" font-size="12" font-weight="700" font-family="Inter">BE-DNA</text>
+          <circle cx="340" cy="395" r="8" fill="#6E4A8E"/><text x="355" y="400" font-size="11" font-weight="700" font-family="Inter">FBE Praha</text>
+          <circle cx="420" cy="370" r="7" fill="#6E4A8E"/><text x="432" y="375" font-size="11" font-family="Inter">iLead</text>
+          <circle cx="370" cy="420" r="7" fill="#6B7280"/><text x="278" y="438" font-size="11" font-family="Inter">BetterUp</text>
+          <circle cx="240" cy="425" r="7" fill="#6E4A8E"/><text x="253" y="430" font-size="11" font-family="Inter">Cocuma</text>
+        </svg>
+        <p class="maps-panel-summary">AKA stojí v top-right prakticky sama (Mindwell vedle dělá kliniku, ne edukaci). Calmer (UK) je strategický vzor. <strong>Bílé místo, které máme 2–3 roky čas obsadit.</strong></p>
+      </div>
+
+      <!-- PANEL B -->
+      <div class="maps-panel" id="panel-b" role="tabpanel" aria-labelledby="tab-b" hidden>
+        <div class="maps-panel-header">
+          <div>
+            <h3>B · Reaktivní × Tón — jak mluvíme</h3>
+            <p>Kdy zasahujeme (reaktivně × proaktivně) vs. jakým jazykem (korporátně-výkonově × lidsky). AKA + Calmer + NVD v lidsko-proaktivním vrcholu.</p>
+          </div>
+        </div>
+        <svg class="maps-panel-svg" viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="map-b-title">
+          <title id="map-b-title">Mapa konkurence: Reaktivní versus Proaktivní × Korporátní versus Lidský tón.</title>
+          <rect width="1000" height="560" fill="#F5EFE8" rx="8"/>
+          <rect x="500" y="40" width="380" height="220" fill="#E37A4A" opacity="0.08"/>
+          <rect x="120" y="40" width="760" height="440" fill="none" stroke="#1F2A37" stroke-width="1.5"/>
+          <line x1="500" y1="40" x2="500" y2="480" stroke="#1F2A37" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="120" y1="260" x2="880" y2="260" stroke="#1F2A37" stroke-width="1" stroke-dasharray="3 3"/>
+          <text x="40" y="55" font-size="11" font-weight="700" fill="#4A2B6E" font-family="Inter">▲ LIDSKÝ TÓN</text>
+          <text x="40" y="490" font-size="11" font-weight="700" fill="#6B7280" font-family="Inter">▼ KORPORÁTNÍ</text>
+          <text x="120" y="520" font-size="11" font-weight="700" fill="#6B7280" font-family="Inter">◀ REAKTIVNÍ</text>
+          <text x="880" y="520" font-size="11" font-weight="700" fill="#4A2B6E" text-anchor="end" font-family="Inter">PROAKTIVNÍ ▶</text>
+          <text x="690" y="65" font-size="11" font-weight="700" fill="#E37A4A" text-anchor="middle" font-family="Inter" opacity="0.7">◀ BÍLÉ MÍSTO AKA</text>
+          <!-- AKA -->
+          <circle cx="720" cy="120" r="18" fill="none" stroke="#E37A4A" stroke-width="3"/>
+          <circle cx="720" cy="120" r="11" fill="#4A2B6E"/>
+          <text x="745" y="112" font-size="14" font-weight="700" fill="#4A2B6E" font-family="Inter">AKA</text>
+          <circle cx="685" cy="135" r="7" fill="#6B7280"/><text x="610" y="145" font-size="11" font-family="Inter">Calmer (UK)</text>
+          <circle cx="760" cy="85" r="7" fill="#7A9B7A"/><text x="710" y="75" font-size="11" font-style="italic" font-family="Inter">NVD samo</text>
+          <circle cx="730" cy="105" r="7" fill="#7A9B7A"/><text x="745" y="100" font-size="11" font-family="Inter">Loono</text>
+          <circle cx="630" cy="225" r="9" fill="#6E4A8E"/><text x="645" y="230" font-size="12" font-weight="700" font-family="Inter">BE-DNA</text>
+          <circle cx="650" cy="195" r="9" fill="#6E4A8E"/><text x="665" y="200" font-size="12" font-weight="700" font-family="Inter">Soulmio</text>
+          <circle cx="585" cy="295" r="8" fill="#6E4A8E"/><text x="600" y="300" font-size="11" font-weight="700" font-family="Inter">FBE Praha</text>
+          <circle cx="545" cy="335" r="7" fill="#6E4A8E"/><text x="558" y="340" font-size="11" font-family="Inter">iLead</text>
+          <circle cx="310" cy="155" r="7" fill="#6B7280"/><text x="323" y="160" font-size="11" font-family="Inter">Spill (UK)</text>
+          <circle cx="275" cy="290" r="7" fill="#7A9B7A"/><text x="290" y="294" font-size="11" font-family="Inter">Hedepy</text>
+          <circle cx="295" cy="265" r="7" fill="#7A9B7A"/><text x="310" y="270" font-size="11" font-family="Inter">Mindwell</text>
+          <circle cx="275" cy="375" r="7" fill="#6B7280"/><text x="290" y="380" font-size="11" font-family="Inter">Lyra (US)</text>
+          <circle cx="340" cy="395" r="7" fill="#6B7280"/><text x="355" y="400" font-size="11" font-family="Inter">Modern Health</text>
+          <circle cx="585" cy="345" r="7" fill="#6B7280"/><text x="498" y="350" font-size="11" font-family="Inter">Unmind</text>
+          <circle cx="660" cy="410" r="7" fill="#6B7280"/><text x="675" y="415" font-size="11" font-family="Inter">BetterUp</text>
+          <circle cx="600" cy="390" r="7" fill="#6B7280"/><text x="615" y="395" font-size="11" font-family="Inter">Sanctus</text>
+        </svg>
+        <p class="maps-panel-summary">Většina globální konkurence (Lyra, Modern Health, BetterUp) je v korporátně-výkonovém spodku. <strong>AKA + Calmer + NVD = lidsko-proaktivní vrchol.</strong> To je jazyk, kterým mluvíme.</p>
+      </div>
+
+      <!-- PANEL C -->
+      <div class="maps-panel" id="panel-c" role="tabpanel" aria-labelledby="tab-c" hidden>
+        <div class="maps-panel-header">
+          <div>
+            <h3>C · Formát × Dopad — co prodáváme</h3>
+            <p>Jak je práce strukturovaná (workshop × strukturovaný program) vs. kde se intervence projeví (individuálně × systémově). Top-right kvadrant je hustý — boj o pozici.</p>
+          </div>
+        </div>
+        <svg class="maps-panel-svg" viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="map-c-title">
+          <title id="map-c-title">Mapa konkurence: Workshop versus Strukturovaný program × Individuální versus Systémový dopad.</title>
+          <rect width="1000" height="560" fill="#F5EFE8" rx="8"/>
+          <rect x="500" y="40" width="380" height="220" fill="#E37A4A" opacity="0.08"/>
+          <rect x="120" y="40" width="760" height="440" fill="none" stroke="#1F2A37" stroke-width="1.5"/>
+          <line x1="500" y1="40" x2="500" y2="480" stroke="#1F2A37" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="120" y1="260" x2="880" y2="260" stroke="#1F2A37" stroke-width="1" stroke-dasharray="3 3"/>
+          <text x="40" y="55" font-size="11" font-weight="700" fill="#4A2B6E" font-family="Inter">▲ SYSTÉMOVÝ</text>
+          <text x="40" y="490" font-size="11" font-weight="700" fill="#6B7280" font-family="Inter">▼ INDIVIDUÁLNÍ</text>
+          <text x="120" y="520" font-size="11" font-weight="700" fill="#6B7280" font-family="Inter">◀ WORKSHOP</text>
+          <text x="880" y="520" font-size="11" font-weight="700" fill="#4A2B6E" text-anchor="end" font-family="Inter">PROGRAM ▶</text>
+          <text x="690" y="65" font-size="11" font-weight="700" fill="#E37A4A" text-anchor="middle" font-family="Inter" opacity="0.7">◀ HLAVNÍ KONKURENCE TADY</text>
+          <!-- AKA -->
+          <circle cx="770" cy="105" r="18" fill="none" stroke="#E37A4A" stroke-width="3"/>
+          <circle cx="770" cy="105" r="11" fill="#4A2B6E"/>
+          <text x="795" y="97" font-size="14" font-weight="700" fill="#4A2B6E" font-family="Inter">AKA</text>
+          <circle cx="720" cy="155" r="7" fill="#6B7280"/><text x="612" y="148" font-size="11" font-family="Inter">Calmer (UK)</text>
+          <circle cx="685" cy="170" r="9" fill="#6E4A8E"/><text x="592" y="180" font-size="12" font-weight="700" font-family="Inter">BE-DNA</text>
+          <circle cx="630" cy="245" r="8" fill="#6E4A8E"/><text x="555" y="250" font-size="11" font-weight="700" font-family="Inter">FBE Praha</text>
+          <circle cx="680" cy="280" r="7" fill="#6E4A8E"/><text x="695" y="285" font-size="11" font-family="Inter">iLead</text>
+          <circle cx="620" cy="310" r="9" fill="#6E4A8E"/><text x="635" y="315" font-size="12" font-weight="700" font-family="Inter">Soulmio</text>
+          <circle cx="295" cy="200" r="7" fill="#7A9B7A"/><text x="220" y="195" font-size="11" font-style="italic" font-family="Inter">NVD samo</text>
+          <circle cx="275" cy="265" r="7" fill="#7A9B7A"/><text x="290" y="270" font-size="11" font-family="Inter">Loono</text>
+          <circle cx="265" cy="415" r="7" fill="#7A9B7A"/><text x="280" y="420" font-size="11" font-family="Inter">Nepanikař</text>
+          <circle cx="625" cy="425" r="7" fill="#7A9B7A"/><text x="640" y="430" font-size="11" font-family="Inter">Hedepy</text>
+          <circle cx="605" cy="395" r="7" fill="#7A9B7A"/><text x="538" y="395" font-size="11" font-family="Inter">Mindwell</text>
+          <circle cx="700" cy="395" r="7" fill="#6B7280"/><text x="715" y="400" font-size="11" font-family="Inter">Spill</text>
+          <circle cx="765" cy="430" r="7" fill="#6B7280"/><text x="780" y="435" font-size="11" font-family="Inter">Lyra (US)</text>
+          <circle cx="805" cy="405" r="7" fill="#6B7280"/><text x="820" y="410" font-size="11" font-family="Inter">Modern Health</text>
+          <circle cx="725" cy="360" r="7" fill="#6B7280"/><text x="638" y="365" font-size="11" font-family="Inter">BetterUp</text>
+          <circle cx="660" cy="335" r="7" fill="#6B7280"/><text x="588" y="335" font-size="11" font-family="Inter">Unmind</text>
+        </svg>
+        <p class="maps-panel-summary">Top-right kvadrant „program + systém" je <strong>hustý</strong> — boj o pozici s BE-DNA, FBE, Calmer, Soulmio. Bílé místo není kvadrant, ale <strong>průnik: program + systém + hloubka MH</strong>.</p>
+      </div>
+    </div>
+
+    <!-- THREE NEGATIONS -->
+    <div class="three-negations">
+      <h3>Tři negace pro positioning</h3>
+      <ol class="neg-list">
+        <li class="neg-item">
+          <p class="neg-title">Není to jen benefit</p>
+          <p class="neg-desc">Terapie a EAP mohou navazovat, ale jádro je změna prostředí.</p>
+        </li>
+        <li class="neg-item">
+          <p class="neg-title">Není to jen workshop</p>
+          <p class="neg-desc">Vzdělávání má být napojené na měření, leadership a implementaci.</p>
+        </li>
+        <li class="neg-item">
+          <p class="neg-title">Není to jen audit</p>
+          <p class="neg-desc">Data mají otevřít rozhovor a rozhodnutí, ne vytvořit studený report.</p>
+        </li>
+      </ol>
+    </div>
+
+    <!-- INTERACTIVE FILTER -->
+    <div class="filter-section">
+      <h3 style="font-size: var(--fs-lg); margin-bottom: 0.5rem;">Hráči trhu — filtruj podle typu vztahu</h3>
+      <p style="color: var(--muted); margin-bottom: 1rem; font-size: var(--fs-sm);">Klik na kategorii filtruje. Rozklikni kartu pro detail pozice AKA.</p>
+
+      <div class="filter-controls" role="group" aria-label="Filtr kategorií konkurence">
+        <p class="filter-label">FILTROVAT</p>
+        <button class="filter-btn" aria-pressed="true" data-filter="all">Vše <span class="count">14</span></button>
+        <button class="filter-btn" aria-pressed="false" data-filter="direct">Hlavní konkurent <span class="count">4</span></button>
+        <button class="filter-btn" aria-pressed="false" data-filter="complement">Komplement <span class="count">3</span></button>
+        <button class="filter-btn" aria-pressed="false" data-filter="spojenec">Spojenec <span class="count">2</span></button>
+        <button class="filter-btn" aria-pressed="false" data-filter="model">Globální vzor <span class="count">1</span></button>
+        <button class="filter-btn" aria-pressed="false" data-filter="anti">Anti-vzor <span class="count">4</span></button>
+      </div>
+
+      <div class="comp-grid" id="compGrid">
+        <article class="comp-card" data-cat="direct">
+          <p class="comp-cat">HLAVNÍ KONKURENT · ČR</p>
+          <p class="comp-name">BE-DNA®</p>
+          <p class="comp-desc">Employee Experience platforma na Gallup CliftonStrengths. Velké korporátní portfolio (Lidl, IKEA, NN, Orange, VW).</p>
+          <button class="comp-toggle" aria-expanded="false" aria-controls="d-be-dna">Pozice AKA <span class="arrow">▾</span></button>
+          <div class="comp-detail" id="d-be-dna" role="region">
+            <p class="pos-label">JAK SE LIŠÍME</p>
+            <p class="pos-text">„BE-DNA staví na komerčním Gallup. My stavíme na WHO / ISO 45003 / COPSOQ. To je rozdíl mezi nástrojem prodeje a metodikou prevence."</p>
+          </div>
+        </article>
+
+        <article class="comp-card" data-cat="direct">
+          <p class="comp-cat">HLAVNÍ KONKURENT · ČR</p>
+          <p class="comp-name">Soulmio</p>
+          <p class="comp-desc">Online platforma péče o duševní zdraví. Coaching pro manažery, workshopy, Mental Health Days. Klienti Plzeňský Prazdroj, Productboard. Roste 5× YoY.</p>
+          <button class="comp-toggle" aria-expanded="false" aria-controls="d-soulmio">Pozice AKA <span class="arrow">▾</span></button>
+          <div class="comp-detail" id="d-soulmio" role="region">
+            <p class="pos-label">JAK SE LIŠÍME</p>
+            <p class="pos-text">„Soulmio nabízí platformu s terapií a workshopy. My systémově navrhujeme prostředí, ne jednorázové intervence. Naše PDSA + COPSOQ jsou metodicky hlubší."</p>
+          </div>
+        </article>
+
+        <article class="comp-card" data-cat="direct">
+          <p class="comp-cat">HLAVNÍ KONKURENT · ČR</p>
+          <p class="comp-name">FBE Praha</p>
+          <p class="comp-desc">Vícestupňové leadership programy + stress management. Korporátní klienti, vlastní metodika.</p>
+          <button class="comp-toggle" aria-expanded="false" aria-controls="d-fbe">Pozice AKA <span class="arrow">▾</span></button>
+          <div class="comp-detail" id="d-fbe" role="region">
+            <p class="pos-label">JAK SE LIŠÍME</p>
+            <p class="pos-text">„FBE umí leadership obecně. My umíme leadership v kontextu duševního zdraví. Naše téma je hloubka, ne kapitola."</p>
+          </div>
+        </article>
+
+        <article class="comp-card" data-cat="direct">
+          <p class="comp-cat">SEKUNDÁRNÍ KONKURENT · ČR</p>
+          <p class="comp-name">iLead Institute</p>
+          <p class="comp-desc">Leadership pro top management. Vědecký framing, ale DZ není jádro.</p>
+          <button class="comp-toggle" aria-expanded="false" aria-controls="d-ilead">Pozice AKA <span class="arrow">▾</span></button>
+          <div class="comp-detail" id="d-ilead" role="region">
+            <p class="pos-label">JAK SE LIŠÍME</p>
+            <p class="pos-text">„iLead cílí na top management akademickým jazykem. My cílíme na střední management lidským jazykem — s evidence-based kotvou."</p>
+          </div>
+        </article>
+
+        <article class="comp-card" data-cat="complement">
+          <p class="comp-cat">KOMPLEMENT · ČR</p>
+          <p class="comp-name">Hedepy</p>
+          <p class="comp-desc">Klinická terapie online jako benefit. 300+ firem, $4M+ raised.</p>
+          <button class="comp-toggle" aria-expanded="false" aria-controls="d-hedepy">Pozice AKA <span class="arrow">▾</span></button>
+          <div class="comp-detail" id="d-hedepy" role="region">
+            <p class="pos-label">VZÁJEMNÉ DOPLNĚNÍ</p>
+            <p class="pos-text">„Hedepy léčí, když už něco bolí. My měníme prostředí, aby to bolet nezačalo. Když AKA odhalí potřebu terapie, předáme."</p>
+          </div>
+        </article>
+
+        <article class="comp-card" data-cat="complement">
+          <p class="comp-cat">KOMPLEMENT · ČR</p>
+          <p class="comp-name">Mindwell</p>
+          <p class="comp-desc">Klinický KBT online program. Akademická kotva (prof. Praško), úhrada pojišťovnami.</p>
+          <button class="comp-toggle" aria-expanded="false" aria-controls="d-mindwell">Pozice AKA <span class="arrow">▾</span></button>
+          <div class="comp-detail" id="d-mindwell" role="region">
+            <p class="pos-label">VZÁJEMNÉ DOPLNĚNÍ</p>
+            <p class="pos-text">„Mindwell dělá klinickou terapii. My děláme firemní edukaci a systémovou změnu. Sdílíme akademický základ — můžeme navazovat."</p>
+          </div>
+        </article>
+
+        <article class="comp-card" data-cat="complement">
+          <p class="comp-cat">KOMPLEMENT · ČR</p>
+          <p class="comp-name">ZAAP / EAP poskytovatelé</p>
+          <p class="comp-desc">Telefonické a online poradenství jako benefit. Tradiční model B2B.</p>
+          <button class="comp-toggle" aria-expanded="false" aria-controls="d-zaap">Pozice AKA <span class="arrow">▾</span></button>
+          <div class="comp-detail" id="d-zaap" role="region">
+            <p class="pos-label">VZÁJEMNÉ DOPLNĚNÍ</p>
+            <p class="pos-text">„EAP řeší krize jednotlivců. My systémově předcházíme tomu, aby krize vznikaly. AKA + EAP = úplná péče."</p>
+          </div>
+        </article>
+
+        <article class="comp-card" data-cat="spojenec">
+          <p class="comp-cat">SPOJENEC · ČR</p>
+          <p class="comp-name">Loono</p>
+          <p class="comp-desc">Preventivní edukace fyzického + duševního zdraví. Tým mediků, široký mandát.</p>
+          <button class="comp-toggle" aria-expanded="false" aria-controls="d-loono">Pozice AKA <span class="arrow">▾</span></button>
+          <div class="comp-detail" id="d-loono" role="region">
+            <p class="pos-label">SPOLEČNÉ ZÁJMY</p>
+            <p class="pos-text">„Sdílíme princip prevence a lidský tón. Loono dělá osvětu šíře — AKA hloubku v MH. Můžeme společně tlačit destigmatizaci."</p>
+          </div>
+        </article>
+
+        <article class="comp-card" data-cat="spojenec">
+          <p class="comp-cat">SPOJENEC · ČR</p>
+          <p class="comp-name">NUDZ + Opatruj.se</p>
+          <p class="comp-desc">Národní výzkumný a klinický ústav. Národní autorita.</p>
+          <button class="comp-toggle" aria-expanded="false" aria-controls="d-nudz">Pozice AKA <span class="arrow">▾</span></button>
+          <div class="comp-detail" id="d-nudz" role="region">
+            <p class="pos-label">SPOLEČNÉ ZÁJMY</p>
+            <p class="pos-text">„NUDZ má výzkumnou autoritu, my máme firemní implementaci. Vzájemné posilování — citace, výzkumné spolupráce, sdílení dat."</p>
+          </div>
+        </article>
+
+        <article class="comp-card" data-cat="model">
+          <p class="comp-cat">GLOBÁLNÍ VZOR · UK</p>
+          <p class="comp-name">Calmer (UK)</p>
+          <p class="comp-desc">CPD akreditovaná vzdělávací organizace. Ambivalentní jazyk, zakladatelka jako tvář značky.</p>
+          <button class="comp-toggle" aria-expanded="false" aria-controls="d-calmer">Pozice AKA <span class="arrow">▾</span></button>
+          <div class="comp-detail" id="d-calmer" role="region">
+            <p class="pos-label">CO BYCHOM PŘEVZALI</p>
+            <p class="pos-text">„Calmer je pozičně nejbližší analog. Z čeho čerpáme: ambivalentní jazyk, zakladatelka jako tvář, CPD akreditace, modulární portfolio."</p>
+          </div>
+        </article>
+
+        <article class="comp-card" data-cat="anti">
+          <p class="comp-cat">ANTI-VZOR · US</p>
+          <p class="comp-name">Lyra Health (US)</p>
+          <p class="comp-desc">$5,6B unicorn klinické terapie. Peer-reviewed research, ale primárně terapie.</p>
+          <button class="comp-toggle" aria-expanded="false" aria-controls="d-lyra">Pozice AKA <span class="arrow">▾</span></button>
+          <div class="comp-detail" id="d-lyra" role="region">
+            <p class="pos-label">ČEHO SE VYHÝBÁME</p>
+            <p class="pos-text">„Klinická medicínská autorita. My jsme vzdělávací akademie, ne medicínská firma."</p>
+          </div>
+        </article>
+
+        <article class="comp-card" data-cat="anti">
+          <p class="comp-cat">ANTI-VZOR · US</p>
+          <p class="comp-name">Modern Health (US)</p>
+          <p class="comp-desc">$1,17B unicorn. „Global Standard in Mental Health" — globální klinika.</p>
+          <button class="comp-toggle" aria-expanded="false" aria-controls="d-mh">Pozice AKA <span class="arrow">▾</span></button>
+          <div class="comp-detail" id="d-mh" role="region">
+            <p class="pos-label">ČEHO SE VYHÝBÁME</p>
+            <p class="pos-text">„„Global Standard" superlativ. V ČR působí pompézně. Mluvíme střízlivě."</p>
+          </div>
+        </article>
+
+        <article class="comp-card" data-cat="anti">
+          <p class="comp-cat">ANTI-VZOR · US</p>
+          <p class="comp-name">BetterUp (US)</p>
+          <p class="comp-desc">$4,7B unicorn coaching. „14× ROI", performance jazyk.</p>
+          <button class="comp-toggle" aria-expanded="false" aria-controls="d-betterup">Pozice AKA <span class="arrow">▾</span></button>
+          <div class="comp-detail" id="d-betterup" role="region">
+            <p class="pos-label">ČEHO SE VYHÝBÁME</p>
+            <p class="pos-text">„Performance-first jazyk. My stavíme na lidech, ne na výkonu. Výkon je důsledek, ne claim."</p>
+          </div>
+        </article>
+
+        <article class="comp-card" data-cat="anti">
+          <p class="comp-cat">ANTI-VZOR · UK</p>
+          <p class="comp-name">Unmind (UK)</p>
+          <p class="comp-desc">Ekosystémový hráč. Therapy + manager training + AI.</p>
+          <button class="comp-toggle" aria-expanded="false" aria-controls="d-unmind">Pozice AKA <span class="arrow">▾</span></button>
+          <div class="comp-detail" id="d-unmind" role="region">
+            <p class="pos-label">ČEHO SE VYHÝBÁME</p>
+            <p class="pos-text">„Defenzivní ROI kalkulačka „kolik vás stojí, když to neřešíte". Stahuje rozhovor na strach."</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · KOMUNIKACE -->
+<section class="page" id="komunikace" aria-labelledby="h-komunikace">
+  <div class="container">
+    <p class="section-eyebrow">Kapitola 8 · Hlas značky</p>
+    <h2 class="section-title" id="h-komunikace">Komunikace</h2>
+    <p class="section-lead">Promise, hero claim per audience, jazyk a tón.</p>
+
+    <div class="hero-claim">
+      <p class="label">PROMISE</p>
+      <p class="quote">„Pomáháme firmám vytvářet kulturu, ve které lidé nemusí vypustit duši."</p>
+      <p class="tagline">Z dílny Nevypusť duši · 10 let péče o duševní zdraví v ČR</p>
+    </div>
+
+    <h3 style="font-size: var(--fs-lg); margin-bottom: 1.5rem;">Hero věty per audience</h3>
+    <div class="hero-per-audience">
+      <article class="hero-row row-purple">
+        <p class="hr-label">PRO LÍDR*YNĚ</p>
+        <p class="hr-text">„Duševní zdraví v týmu začíná u vás — naučíme vás, jak na to konkrétně."</p>
+      </article>
+      <article class="hero-row row-coral">
+        <p class="hr-label">PRO HR</p>
+        <p class="hr-text">„Vyhoření, fluktuace, retention — řešíme přes leadery, ne přes EAP plakát."</p>
+      </article>
+      <article class="hero-row row-sage">
+        <p class="hr-label">PRO ESG / CEO</p>
+        <p class="hr-text">„Naplňte „S" pilíř ESRS smysluplně. Měřitelně. Bez greenwashingu."</p>
+      </article>
+    </div>
+
+    <div class="do-dont">
+      <article class="dd-card yes">
+        <h4>Říkáme</h4>
+        <ul>
+          <li>„práce může lidi posilovat"</li>
+          <li>„měníme prostředí"</li>
+          <li>„důkazy říkají…"</li>
+          <li>„z WHO / ISO / COPSOQ víme…"</li>
+          <li>„konkrétně, hmatatelně, do 30 dnů"</li>
+          <li>„manažer není terapeut, je multiplikátor"</li>
+        </ul>
+      </article>
+      <article class="dd-card no">
+        <h4>Neříkáme</h4>
+        <ul>
+          <li>„transformační"</li>
+          <li>„14× ROI" / agresivní násobky</li>
+          <li>„global standard" / „world-class"</li>
+          <li>„holistický wellness"</li>
+          <li>„změníme váš život"</li>
+          <li>„silné stránky" (Gallup teritorium)</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · VIZUÁL -->
+<section class="page cream-deep" id="vizual" aria-labelledby="h-vizual">
+  <div class="container">
+    <p class="section-eyebrow">Kapitola 9 · Vizuální vodítka</p>
+    <h2 class="section-title" id="h-vizual">Vizuální identita</h2>
+    <p class="section-lead">Strategický rámec — ne hotová identita.</p>
+
+    <h3 style="font-size: var(--fs-md); margin-bottom: 1rem;">Paleta</h3>
+    <div class="palette">
+      <div class="swatch purple"><p class="role">PRIMARY</p><p class="hex">#4A2B6E</p></div>
+      <div class="swatch purple-light"><p class="role">PRIMARY+</p><p class="hex">#6E4A8E</p></div>
+      <div class="swatch cream"><p class="role">CREAM</p><p class="hex">#F5EFE8</p></div>
+      <div class="swatch cream-deep"><p class="role">CREAM+</p><p class="hex">#EBE3D7</p></div>
+      <div class="swatch coral"><p class="role">ACCENT</p><p class="hex">#E37A4A</p></div>
+      <div class="swatch sage"><p class="role">SAGE</p><p class="hex">#7A9B7A</p></div>
+      <div class="swatch dark"><p class="role">DARK</p><p class="hex">#1F2A37</p></div>
+      <div class="swatch muted"><p class="role">MUTED</p><p class="hex">#6B7280</p></div>
+    </div>
+
+    <h3 style="font-size: var(--fs-md); margin-bottom: 1rem;">Typografie</h3>
+    <div class="typo-demo">
+      <p class="typo-meta">PROGRAM PRO LÍDR*YNĚ · 26 HODIN</p>
+      <p class="typo-h1">Akademie pro lídr*yně</p>
+      <p class="typo-h2">Co odejdete umět</p>
+      <p class="typo-body">Po programu pracujete s psychosociálními riziky a duševním zdravím na čtyřech úrovních. Ne jako terapeut*ka, ale jako kompetentní lídr*yně.</p>
+    </div>
+
+    <div style="background: var(--white); padding: 1.5rem; border-radius: 0.5rem; font-size: var(--fs-sm); color: var(--muted);">
+      <strong style="color: var(--dark);">Principy:</strong> Sans-serif vždy (Inter / Calibri). Žádné serify. Title 22–36pt bold · H2 16–20pt bold · Body 11–12pt. Dýchající prostor, line-height 1.4–1.5.
+    </div>
+  </div>
+</section>
+
+<!-- 10 · PRODUKT -->
+<section class="page" id="produkt" aria-labelledby="h-produkt">
+  <div class="container">
+    <p class="section-eyebrow">Kapitola 10 · Co prodáváme</p>
+    <h2 class="section-title" id="h-produkt">Produktová architektura</h2>
+    <p class="section-lead">Tři balíčky, modulová mapa, COPSOQ jako měřící páteř.</p>
+
+    <div class="packages">
+      <article class="package basic">
+        <p class="tier">PRVNÍ KROK</p>
+        <p class="name">Basic</p>
+        <p class="duration">3 měsíce</p>
+        <p class="goal">Rychlý audit, mapování rizik, první sada cílených opatření.</p>
+      </article>
+      <article class="package premium">
+        <p class="tier">JÁDRO NABÍDKY</p>
+        <p class="name">Premium</p>
+        <p class="duration">9 měsíců</p>
+        <p class="goal">Komplexní rozvoj středního managementu + HR, revize procesů, BOZP integrace.</p>
+      </article>
+      <article class="package plus">
+        <p class="tier">KULTURNÍ ZMĚNA</p>
+        <p class="name">Premium plus</p>
+        <p class="duration">14 měsíců</p>
+        <p class="goal">Dlouhodobá změna kultury, wellbeing v ESG, leadership transformation.</p>
+      </article>
+    </div>
+
+    <div style="margin-top: 4rem; background: var(--cream-deep); padding: 2rem; border-radius: 0.75rem;">
+      <h3 style="font-size: var(--fs-md); margin-bottom: 1rem;">Měření · COPSOQ priority škály</h3>
+      <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: var(--fs-sm);">Měření je <strong>produkt</strong>, ne metoda. Před / po cyklus intervence.</p>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem;">
+        <div style="background: var(--white); padding: 1rem; border-radius: 0.5rem; border-top: 3px solid var(--purple);">
+          <strong style="font-size: var(--fs-sm);">Kvalita vedení</strong>
+          <p style="font-size: var(--fs-xs); color: var(--muted);">vysoká</p>
+        </div>
+        <div style="background: var(--white); padding: 1rem; border-radius: 0.5rem; border-top: 3px solid var(--purple);">
+          <strong style="font-size: var(--fs-sm);">Sociální opora</strong>
+          <p style="font-size: var(--fs-xs); color: var(--muted);">vysoká</p>
+        </div>
+        <div style="background: var(--white); padding: 1rem; border-radius: 0.5rem; border-top: 3px solid var(--purple);">
+          <strong style="font-size: var(--fs-sm);">Organizační spravedlnost</strong>
+          <p style="font-size: var(--fs-xs); color: var(--muted);">vysoká</p>
+        </div>
+        <div style="background: var(--white); padding: 1rem; border-radius: 0.5rem; border-top: 3px solid var(--coral);">
+          <strong style="font-size: var(--fs-sm);">Pracovní tempo</strong>
+          <p style="font-size: var(--fs-xs); color: var(--muted);">střední/vysoká</p>
+        </div>
+        <div style="background: var(--white); padding: 1rem; border-radius: 0.5rem; border-top: 3px solid var(--coral);">
+          <strong style="font-size: var(--fs-sm);">Vliv na práci</strong>
+          <p style="font-size: var(--fs-xs); color: var(--muted);">střední/vysoká</p>
+        </div>
+        <div style="background: var(--white); padding: 1rem; border-radius: 0.5rem; border-top: 3px solid var(--sage);">
+          <strong style="font-size: var(--fs-sm);">Konflikt rolí</strong>
+          <p style="font-size: var(--fs-xs); color: var(--muted);">střední</p>
+        </div>
+        <div style="background: var(--white); padding: 1rem; border-radius: 0.5rem; border-top: 3px solid var(--sage);">
+          <strong style="font-size: var(--fs-sm);">Emoční nároky</strong>
+          <p style="font-size: var(--fs-xs); color: var(--muted);">střední</p>
+        </div>
+        <div style="background: var(--white); padding: 1rem; border-radius: 0.5rem; border-top: 3px solid var(--sage);">
+          <strong style="font-size: var(--fs-sm);">Smysluplnost</strong>
+          <p style="font-size: var(--fs-xs); color: var(--muted);">dlouhodobá</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · HRANICE -->
+<section class="page dark" id="hranice" aria-labelledby="h-hranice">
+  <div class="container">
+    <p class="section-eyebrow">Kapitola 11 · Hranice a etika</p>
+    <h2 class="section-title" id="h-hranice">Co Akademie záměrně nedělá</h2>
+    <p class="section-lead">Stejně důležité jako co děláme. Hranice chrání identitu.</p>
+
+    <div class="ethics-list">
+      <article class="ethic-item"><h4>Není terapie</h4><p>Naučíme rozpoznat krizi a předat člověka dál.</p></article>
+      <article class="ethic-item"><h4>Není motivační rétorika</h4><p>Žádné „silní jste, když chcete". Stojíme na evidenci.</p></article>
+      <article class="ethic-item"><h4>Není checklist</h4><p>Žádný univerzální postup. Stavíme nástroje.</p></article>
+      <article class="ethic-item"><h4>Není rychlá oprava</h4><p>Vyhoření se nezahojí na jednom workshopu.</p></article>
+      <article class="ethic-item"><h4>Nestojíme na heuristice</h4><p>Žádný Gallup, žádné „silné stránky" jako jádro.</p></article>
+      <article class="ethic-item"><h4>Neslibujeme 14× ROI</h4><p>Realističtější rámec — retence, kultura, udržitelnost.</p></article>
+      <article class="ethic-item"><h4>Není wellbeing pod EX</h4><p>Duševní zdraví je hloubka, ne kapitola.</p></article>
+      <article class="ethic-item"><h4>Není polished za každou cenu</h4><p>Říkáme i to, co je obtížné. Honesty > polish.</p></article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<button class="back-to-top" id="backToTop" aria-label="Zpět nahoru">↑</button>
+
+<footer aria-labelledby="foot-title">
+  <div class="container">
+    <h2 id="foot-title">Akademie · Brand Manuál v3</h2>
+    <p class="colophon">
+      Vzniklo metodou <strong>human-in-the-loop</strong>: Petra Kutálková (autorské vedení a rozhodování), AI asistent Claude (syntéza a sazba). Verze 3 integruje top navigaci, tři varianty pozičních map jako záložky, plnou interakci konkurence + univerzální design (WCAG 2.2).
+    </p>
+    <p class="meta">
+      Verze 3.0 · 2026-06-03 · Z dílny Nevypusť duši · Univerzální design (WCAG 2.2)
+    </p>
+  </div>
+</footer>
+
+<script>
+const progress = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const winH = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = winH > 0 ? (window.scrollY / winH) * 100 : 0;
+  progress.style.width = scrolled + '%';
+  progress.setAttribute('aria-valuenow', Math.round(scrolled));
+
+  // Back to top
+  document.getElementById('backToTop').classList.toggle('show', window.scrollY > 400);
+});
+
+// Active section
+const sections = document.querySelectorAll('section.page, section.hero');
+const allLinks = document.querySelectorAll('nav.side a, .topnav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 120;
+    if (window.scrollY >= top) current = section.id;
+  });
+  allLinks.forEach(link => {
+    const isActive = link.getAttribute('href') === '#' + current;
+    if (isActive) link.setAttribute('aria-current', 'true');
+    else link.removeAttribute('aria-current');
+  });
+});
+
+// Mobile menu toggle
+const mobileToggle = document.getElementById('mobileToggle');
+const topnavLinks = document.getElementById('topnavLinks');
+if (mobileToggle) {
+  mobileToggle.addEventListener('click', () => {
+    const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+    mobileToggle.setAttribute('aria-expanded', !expanded);
+    topnavLinks.classList.toggle('open');
+  });
+}
+
+// Map tabs
+const mapTabs = document.querySelectorAll('.maps-tab');
+const mapPanels = document.querySelectorAll('.maps-panel');
+
+mapTabs.forEach(tab => {
+  tab.addEventListener('click', () => activateTab(tab));
+  tab.addEventListener('keydown', (e) => {
+    let target = null;
+    if (e.key === 'ArrowRight') target = tab.nextElementSibling;
+    if (e.key === 'ArrowLeft') target = tab.previousElementSibling;
+    if (e.key === 'Home') target = mapTabs[0];
+    if (e.key === 'End') target = mapTabs[mapTabs.length - 1];
+    if (target && target.classList.contains('maps-tab')) {
+      e.preventDefault();
+      activateTab(target);
+      target.focus();
+    }
+  });
+});
+
+function activateTab(tab) {
+  mapTabs.forEach(t => {
+    t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+    t.tabIndex = t === tab ? 0 : -1;
+  });
+  const target = tab.dataset.tab;
+  mapPanels.forEach(p => {
+    if (p.id === 'panel-' + target) { p.classList.add('active'); p.hidden = false; }
+    else { p.classList.remove('active'); p.hidden = true; }
+  });
+}
+
+// Filter buttons
+const filterBtns = document.querySelectorAll('.filter-btn');
+const compCards = document.querySelectorAll('.comp-card');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filter = btn.dataset.filter;
+    filterBtns.forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+    compCards.forEach(card => {
+      card.classList.toggle('hidden', filter !== 'all' && card.dataset.cat !== filter);
+    });
+  });
+});
+
+// Comp card expand
+const toggleBtns = document.querySelectorAll('.comp-toggle');
+toggleBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', !expanded);
+    const detail = document.getElementById(btn.getAttribute('aria-controls'));
+    if (detail) detail.classList.toggle('show');
+  });
+});
+
+// Back to top
+document.getElementById('backToTop').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>
