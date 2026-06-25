@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akademie · Brand Manuál V5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F1EFF6; --hero:#EEEBF4;
+  --ink:#15131A; --muted:#5b5766;
+  --purple:#7C5EA9; --purple2:#6E4A8E; --deep:#4A2B6E;
+  --soft:#C9BBE2; --softer:#D8CEEC;
+  --line:#1d1b22; --accent:#E37A4A; --green:#3F7A4A;
+  --card:#FFFFFF;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+/* ---------- nav ---------- */
+nav.top{position:sticky;top:0;z-index:60;background:rgba(241,239,246,.92);
+  backdrop-filter:blur(8px);border-bottom:1px solid #ddd7e8}
+nav.top .wrap{display:flex;align-items:center;gap:22px;height:60px;flex-wrap:wrap}
+nav.top a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500}
+nav.top a:hover{color:var(--deep)}
+.brandmini{display:flex;align-items:baseline;gap:8px;font-weight:700;color:var(--deep);font-size:15px;margin-right:auto}
+.brandmini small{font-size:8.5px;letter-spacing:2px;color:var(--purple2);font-weight:600}
+
+/* ---------- logo ---------- */
+.logo{display:flex;align-items:center;gap:11px}
+.logo .txt{line-height:1}
+.logo .txt b{font-size:23px;font-weight:700;color:var(--deep);letter-spacing:.5px}
+.logo .txt span{display:block;font-size:10px;letter-spacing:3px;color:var(--purple2);font-weight:600;margin-top:3px}
+
+/* ---------- hero (decor and content fully separated) ---------- */
+.hero{position:relative;background:var(--hero);overflow:hidden}
+.heroDeco{position:absolute;inset:0;z-index:0;pointer-events:none}
+.heroDeco span{position:absolute;border-radius:50%;display:block}
+.heroDeco .c1{width:340px;height:340px;top:-90px;right:-50px;background:var(--soft);opacity:.9}
+.heroDeco .c2{width:140px;height:140px;top:70px;right:250px;background:var(--softer);opacity:.85}
+.heroGrid{position:relative;z-index:1;display:grid;grid-template-columns:1.12fr .88fr;
+  gap:44px;padding:50px 28px 62px;align-items:center}
+.heroGrid h1{font-size:49px;line-height:1.07;font-weight:800;letter-spacing:-1px;margin:24px 0 20px;max-width:460px}
+.heroGrid h1 .hl{color:var(--purple)}
+.heroGrid p.lead{color:var(--muted);font-size:15.5px;max-width:430px;margin:0 0 30px}
+.btn{display:inline-block;border:1.6px solid var(--line);border-radius:40px;
+  padding:14px 30px;font-weight:600;letter-spacing:1.5px;font-size:13px;
+  color:var(--ink);text-decoration:none;background:transparent;transition:.18s}
+.btn:hover{background:var(--deep);color:#fff;border-color:var(--deep)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:18px 20px;font-size:13.5px;color:#26222e}
+.stat.big{grid-column:1/3}
+.stat b{color:var(--deep);font-weight:700;font-size:16px}
+
+/* ---------- sections ---------- */
+section{padding:54px 0;border-top:1px solid #e2dcef}
+.kicker{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:600;
+  color:var(--purple2);text-transform:uppercase;margin-bottom:10px}
+h2{font-size:33px;font-weight:800;letter-spacing:-.6px;margin:0 0 8px}
+h2 .hl{color:var(--purple)}
+.sub{color:var(--muted);font-size:15px;max-width:680px;margin:0 0 26px}
+h3{font-size:17px;font-weight:700;color:var(--deep);margin:22px 0 8px}
+p{margin:0 0 12px;font-size:14.5px;color:#2a2731}
+.muted{color:var(--muted);font-size:13.5px}
+
+.cards{display:grid;gap:16px}
+.cards.c2{grid-template-columns:1fr 1fr}
+.cards.c3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:22px 24px}
+.card h4{margin:0 0 8px;font-size:15.5px;font-weight:700;color:var(--ink)}
+.card .tagrole{font-size:10.5px;letter-spacing:2px;font-weight:600;color:var(--purple2);text-transform:uppercase;display:block;margin-bottom:6px}
+.card p{font-size:13.5px;margin:0 0 8px}
+ul.clean{margin:6px 0 12px;padding-left:20px}
+ul.clean li{font-size:14px;margin-bottom:6px;color:#2a2731}
+ul.clean li::marker{color:var(--purple)}
+
+.quote{border-left:5px solid var(--purple);background:#fff;border-radius:0 18px 18px 0;
+  padding:18px 24px;font-size:21px;font-weight:600;color:var(--deep);font-style:italic;margin:6px 0 18px}
+
+.badge{display:inline-block;border-radius:30px;padding:4px 11px;font-size:10.5px;
+  font-weight:700;letter-spacing:.6px;margin-right:8px;vertical-align:middle}
+.badge.k{background:var(--accent);color:#fff}
+.badge.proc{background:var(--purple2);color:#fff}
+.badge.zmena{background:#2d6a4f;color:#fff}
+.note{border:1.4px solid var(--accent);border-radius:16px;padding:13px 16px;margin:12px 0;
+  font-size:13px;color:#3a2f2a;background:#fff}
+.note.proc{border-color:var(--purple2);color:#332b40}
+
+/* ---------- sliders ---------- */
+.legend{display:flex;gap:24px;align-items:center;margin:4px 0 28px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.legend .dot{display:inline-block;width:15px;height:15px;border-radius:50%;vertical-align:-2px;margin-right:7px}
+.dot.nvd{background:var(--soft);border:2px solid var(--purple2)}
+.dot.aka{background:var(--deep)}
+.slider{margin:0 0 30px}
+.slider .poles{display:flex;justify-content:space-between;font-size:13.5px;font-weight:600;margin-bottom:9px}
+.slider .poles .l{color:var(--muted)}
+.slider .poles .r{color:var(--deep)}
+.track{position:relative;height:8px;border-radius:8px;
+  background:linear-gradient(90deg,#ddd4ec,#c9bbe2);margin:22px 8px 18px}
+.track .tick{position:absolute;top:-5px;width:1px;height:18px;background:#cdbfe6}
+.mark{position:absolute;top:50%;transform:translate(-50%,-50%);width:22px;height:22px;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:9px;font-weight:700;box-shadow:0 1px 4px rgba(0,0,0,.18)}
+.mark.nvd{background:var(--soft);border:2.5px solid var(--purple2);color:var(--deep)}
+.mark.aka{background:var(--deep);color:#fff;z-index:2}
+.mark .lbl{position:absolute;font-size:9.5px;font-weight:700;white-space:nowrap;color:var(--muted)}
+.mark.nvd .lbl{top:24px}
+.mark.aka .lbl{top:-22px;color:var(--deep)}
+
+footer{padding:40px 0;border-top:1px solid #e2dcef;color:var(--muted);font-size:12.5px;text-align:center}
+
+@media(max-width:840px){
+  .heroGrid{grid-template-columns:1fr;gap:28px;padding:34px 28px 44px}
+  .heroGrid h1{font-size:37px}
+  .heroDeco .c2{right:30px}
+  .cards.c2,.cards.c3{grid-template-columns:1fr}
+  h2{font-size:27px}
+  nav.top a{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="top"><div class="wrap">
+  <div class="brandmini">akademie<small>NEVYPUSŤ DUŠI</small></div>
+  <a href="#identita">Identita</a>
+  <a href="#smer">Kam směřuje</a>
+  <a href="#proc">Proč/Jak/Co</a>
+  <a href="#hodnoty">Hodnoty</a>
+  <a href="#audience">Audiences</a>
+  <a href="#osobnost">Osobnost</a>
+  <a href="#konkurence">Konkurence</a>
+  <a href="#produkt">Produkt</a>
+</div></nav>
+
+<!-- ======= HERO ======= -->
+<header class="hero">
+  <div class="heroDeco"><span class="c1"></span><span class="c2"></span></div>
+  <div class="heroGrid wrap">
+    <div>
+      <div class="logo">
+        <svg width="42" height="54" viewBox="0 0 42 54" aria-label="Nevypusť duši">
+          <path d="M21 2C31 2 38 10.5 38 20.5C38 31 27 41 21.7 49.5C21.4 50 20.6 50 20.3 49.5C15 41 4 31 4 20.5C4 10.5 11 2 21 2Z" fill="#6E4A8E"/>
+          <path d="M21 9l1.7 5.1 5.3.2-4.2 3.3 1.5 5.1L21 24.7l-4.3 3.3 1.5-5.1-4.2-3.3 5.3-.2L21 9z" fill="#fff"/>
+        </svg>
+        <div class="txt"><b>akademie</b><span>NEVYPUSŤ DUŠI</span></div>
+      </div>
+      <h1>Firmy, které pečují o své lidi, si udržují ty <span class="hl">nejlepší.</span></h1>
+      <p class="lead">Snižte fluktuaci a budujte kulturu, do které lidé chtějí patřit. Programy šité na míru, vedené odborníky s deseti lety praxe v duševním zdraví.</p>
+      <a class="btn" href="#proc">JAK TO FUNGUJE?</a>
+    </div>
+    <div class="stats">
+      <div class="stat big"><b>73 %</b> dotazovaných pociťuje nebo někdy pociťovalo pracovní stres, který ovlivnil jejich kvalitu života víc, než by si přáli.</div>
+      <div class="stat"><b>1 / 3</b> zaměstnanectva zažívá symptomy syndromu vyhoření.</div>
+      <div class="stat">Lidé s duševními obtížemi si berou <b>dvakrát</b> častěji nemocenskou.</div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ======= PROMISE ======= -->
+<section id="promise"><div class="wrap">
+  <span class="kicker">Brand promise</span>
+  <h2>Co <span class="hl">slibujeme</span></h2>
+  <div class="quote">„Pomáháme firmám vytvářet kulturu, ve které lidé nemusí vypustit duši.“</div>
+  <p class="muted">Z dílny Nevypusť duši · 10 let péče o duševní zdraví v ČR</p>
+  <div class="note"><span class="badge k">K ROZHODNUTÍ</span>Alternativa k finálnímu odsouhlasení: <em>„Umožňujeme firmám vytvořit kulturu, ve které lidé nemusí vypustit duši.“</em> — důraznější, zaměřená na výsledek.</div>
+</div></section>
+
+<!-- ======= IDENTITA ======= -->
+<section id="identita"><div class="wrap">
+  <span class="kicker">Kapitola 1</span>
+  <h2>Identita <span class="hl">značky</span></h2>
+  <p class="sub">Dva brandy, jeden původ. Akademie je samostatná značka s viditelným endorsementem mateřské Nevypusť duši.</p>
+  <div class="cards c2">
+    <div class="card">
+      <span class="tagrole">Mateřská značka</span>
+      <h4>Nevypusť duši</h4>
+      <p><b>Forma:</b> nezisková organizace</p>
+      <p><b>Mise:</b> destigmatizace duševního zdraví v ČR</p>
+      <p><b>Cílovka:</b> veřejnost, školy, sociální pracovníci</p>
+      <p><b>Tón:</b> lidový, destigmatizační · <b>Vizuál:</b> hravější, mladý</p>
+    </div>
+    <div class="card">
+      <span class="tagrole">Endorsed sub-brand</span>
+      <h4>Akademie</h4>
+      <p><b>Forma:</b> komerční vzdělávací rameno NVD</p>
+      <p><b>Mise:</b> duševní zdraví ve firmách jako norma</p>
+      <p><b>Cílovka:</b> firmy (HR, lídr*yně, ESG)</p>
+      <p><b>Tón:</b> profesionální + lidský · <b>Vizuál:</b> klidnější, dospělejší</p>
+    </div>
+  </div>
+  <div class="note"><span class="badge k">K ROZHODNUTÍ</span>Schůzka misi Akademie zpochybnila (zní moc systémově). Alternativy: <b>B)</b> „Vytváříme kulturu, ve které lidé nemusí vypustit duši.“ · <b>C)</b> „Každý má právo žít a pracovat v podpůrném prostředí.“</div>
+  <h3>Orientační příměr (interní)</h3>
+  <p>Nevypusť duši je jako časopis <b>Vlasta</b>. Akademie je <b>Moje psychologie / Psychologie dnes</b> — stejné téma, dospělejší a náročnější čtenář. Vodítko pro tón a vizuál, ne claim na web.</p>
+  <h3>Tří-nožka, na které stojíme</h3>
+  <div class="cards c3">
+    <div class="card"><h4>Akademická</h4><p>WHO · ILO · ISO 45003 · COPSOQ III. Čteme studie, aktualizujeme metodiku a nově publikujeme vlastní data.</p></div>
+    <div class="card"><h4>Vztahová (NVD DNA)</h4><p>Hodnoty, lidský tón, 10+ let důvěryhodnosti.</p></div>
+    <div class="card"><h4>Byznysová</h4><p>Jazyk, kterému CEO a HR rozumí: ROI, ESG, Thriving at Work.</p></div>
+  </div>
+</div></section>
+
+<!-- ======= KAM SMERUJE ======= -->
+<section id="smer"><div class="wrap">
+  <span class="kicker">Kapitola 2 · 20 let dopředu</span>
+  <h2>Kam značka <span class="hl">směřuje</span></h2>
+  <p class="sub">Akademie není workshop. Je to infrastruktura, kterou postupně budujeme.</p>
+  <div class="cards c2">
+    <div class="card"><h4>2027 · Zakotvená</h4>
+      <ul class="clean"><li>Nabídka pilotovaná u 5–8 firem v ČR</li><li>COPSOQ v češtině, 5–8 škál · PDSA jako páteř</li><li>První 3 case studies</li></ul></div>
+    <div class="card"><h4>2031 · Etablovaná</h4>
+      <ul class="clean"><li>Top 3 značka v ČR · 50+ firem</li><li>Vlastní publikace a metodiky · ESG integrace</li></ul></div>
+    <div class="card"><h4>2036 · Kategorie</h4>
+      <ul class="clean"><li>Synonymum „mental health at work“ v ČR</li><li>Rozsah Slovensko · AKA Index · sektorové verze</li></ul></div>
+    <div class="card"><h4>2046 · Norma</h4>
+      <ul class="clean"><li>Mluvit o duševním zdraví je norma</li><li>Infrastruktura, ne školení · generační dopad</li><li>Jádro zůstává: lidská vztahovost × AI; workshopy ustupují konzultacím, intervizím, koučinku a supervizi</li></ul></div>
+  </div>
+  <div class="note"><span class="badge k">K ROZHODNUTÍ</span>Milník 2027 v v4 zněl „3 balíčky pilotované“. Schůzka: <b>nebudou 3 balíčky</b> — formát nabídky k přepracování (viz Produkt).</div>
+  <h3>Výzkumná noha</h3>
+  <p>Chceme vlastní publikovatelná data o tom, jak jsou na tom lidé s duševním zdravím v práci — dotáhnout spolupráci se <b>Zábrodskou</b> a přispívat do repozitáře dat. Výzkum se stává plnohodnotnou nohou tří-nožky.</p>
+  <div class="note proc"><span class="badge proc">V PROCESU</span>Samostatně dořešit dlouhodobou 20letou vizi a datovou/publikační spolupráci.</div>
+</div></section>
+
+<!-- ======= PROC JAK CO ======= -->
+<section id="proc"><div class="wrap">
+  <span class="kicker">Kapitola 3 · Golden Circle</span>
+  <h2>Proč / Jak / <span class="hl">Co</span></h2>
+  <p class="sub">Začínáme uvnitř — u Proč. Vše ostatní z něj vyplývá.</p>
+  <div class="quote">„Věříme, že práce může lidi posilovat — ne ničit. Že člověk má právo žít a pracovat v podpůrném prostředí. A že to je věc nastavení, ne náhody.“</div>
+  <p><b>Měníme prostředí, ne lidi</b> — aby lidem bylo v práci dobře, pracovali efektivně a firma prospívala.</p>
+  <h3>Jak</h3>
+  <ul class="clean">
+    <li><b>Akademická disciplína</b> — WHO, ISO 45003, COPSOQ. Rešeršujeme a publikujeme.</li>
+    <li><b>Participace a systémový pohled</b> — systémová práce a dlouhodobé proměny od škol přes kraje po firmy. Jedeme na vizi, stojíme na výzkumu a známe své limity.</li>
+    <li><b>Byznysový jazyk</b> — ROI, ESG, Thriving at Work. Věda použitelná v rozhodování.</li>
+  </ul>
+  <h3>Co (výsledky, ne nástroje)</h3>
+  <p>Firmy u nás nekupují nástroj — kupují <b>proměnu firmy</b>:</p>
+  <ul class="clean">
+    <li>prostředí, kde lidé chtějí zůstat a rozvíjet se</li>
+    <li>možnost návratu pro lidi s duševním onemocněním</li>
+    <li>důvěra ve vedení a nepromarněný potenciál lidí</li>
+    <li>soulad s moderními normami (ESG) a přitažlivost jako zaměstnavatel</li>
+    <li>posun od ochutnávkových programů k dlouhodobému partnerství</li>
+    <li>udržitelná změna šitá na míru vaší situaci — která vydrží</li>
+  </ul>
+  <p class="muted">Jak to děláme (nástroje): COPSOQ měření před/po · vzdělávání lídr*yně, zaměstnanců a HR · konzultace, audit a integrace BOZP/ESG.</p>
+  <div class="quote" style="font-size:24px;border-radius:18px;border-left:none;background:var(--deep);color:#fff;text-align:center;font-style:normal">Lidskost. Odbornost. Změna, která vydrží.</div>
+</div></section>
+
+<!-- ======= HODNOTY ======= -->
+<section id="hodnoty"><div class="wrap">
+  <span class="kicker">Kapitola 4 · Pod tlakem</span>
+  <h2>Top 3 <span class="hl">hodnoty</span></h2>
+  <p class="sub">Principy, podle kterých rozhodujeme, když je tlak. Mají pomáhat pevně stát a odmítat zkratky („udělejte nám jen tohle“). Hierarchie je závazná.</p>
+  <div class="cards c3">
+    <div class="card"><span class="tagrole">1 · Nejvyšší priorita</span><h4>Měníme prostředí, ne jednotlivce</h4>
+      <p><i>„Ne. Individuální koučink ten problém neřeší. Začneme u systému.“</i></p>
+      <p class="muted">Diferencuje proti: Hedepy, wellness retreaty, EAP. Bez tohoto je AKA jen wellness firma.</p></div>
+    <div class="card"><span class="tagrole">2 · Odborná kotva</span><h4>Co je ověřené, ne co se říká</h4>
+      <p><i>„Ten framework nemá evidenci. Máme tohle z WHO / COPSOQ.“</i></p>
+      <p class="muted">Diferencuje proti: BE-DNA (Gallup), FBE, wellness coaches. Bez vědy ztrácíme pozici u CEO/HR.</p></div>
+    <div class="card"><span class="tagrole">3 · Focus na lidi</span><h4>Lidé nejsou čísla, mají kontext</h4>
+      <p><i>„Čísla mají kontext lidí. Lidé žijí v kontextu — rodinném, partnerském, životním.“</i></p>
+      <p class="muted">Diferencuje proti: Lyra, BetterUp, korporátní ROI rétorika. Tohle dělá AKA dceřinkou NVD.</p></div>
+  </div>
+</div></section>
+
+<!-- ======= AUDIENCES ======= -->
+<section id="audience"><div class="wrap">
+  <span class="kicker">Kapitola 5 · Komu mluvíme</span>
+  <h2>Top 3 <span class="hl">audiences</span></h2>
+  <p class="sub">Když oslovíme všechny, neoslovíme nikoho. Primary tvoří hodnotu, secondary kupuje, tertiary musí být v souladu.</p>
+  <div class="note"><span class="badge k">K ROZHODNUTÍ</span>Názvy audiences k přejmenování. Návrhy: Uživatel / Nákupčí / Strážce souladu.</div>
+  <div class="cards c3">
+    <div class="card"><span class="tagrole">Primární uživatel</span><h4>Teamleader*yně v sandwichi</h4>
+      <p>Vede tým 4–20 lidí, střední management. Tlak shora, očekávání zdola, na sebe nezbývá čas.</p>
+      <p class="muted">Mluvíme: „Vás. Přímo. Lidsky. Bez motivačních řečí.“ Emoční jádro AKA.</p></div>
+    <div class="card"><span class="tagrole">Sekundární nákupčí</span><h4>HR Business Partner &amp; L&amp;D</h4>
+      <p>Drží rozpočet na people development. Fluktuace, vyhoření středního managementu, CSRD reporting.</p>
+      <p class="muted">Mluvíme o leaderech — ROI, ESG napojení, evidence.</p></div>
+    <div class="card"><span class="tagrole">Terciární / nový rozpočet</span><h4>ESG / Sustainability Manager</h4>
+      <p>Rostoucí role díky CSRD/ESRS. Naplnit „S“ pilíř smysluplně a hmatatelně pro reporting.</p>
+      <p class="muted">Vstupní brána a nový rozpočet.</p></div>
+  </div>
+</div></section>
+
+<!-- ======= OSOBNOST + SLIDERY ======= -->
+<section id="osobnost"><div class="wrap">
+  <span class="kicker">Kapitola 6 · Personality Sliders</span>
+  <h2>Osobnost <span class="hl">značky</span></h2>
+  <p class="sub">Na škále 0–10 zaznamenáváme, kde stojí mateřská <b>Nevypusť duši</b> a kde <b>Akademie</b>. Akademie se vůči NVD posouvá k odbornosti, autoritě a odvaze — při zachování společné DNA.</p>
+  <div class="legend">
+    <span><span class="dot nvd"></span>Nevypusť duši (NVD)</span>
+    <span><span class="dot aka"></span>Akademie (AKA)</span>
+  </div>
+  <div id="sliders">
+      <div class="slider">
+        <div class="poles"><span class="l">Lidský <small style="color:#9a90ad">2</small></span><span class="r"><small style="color:#9a90ad">6.5</small> Odborný</span></div>
+        <div class="track"><span class="tick" style="left:0%"></span><span class="tick" style="left:10%"></span><span class="tick" style="left:20%"></span><span class="tick" style="left:30%"></span><span class="tick" style="left:40%"></span><span class="tick" style="left:50%"></span><span class="tick" style="left:60%"></span><span class="tick" style="left:70%"></span><span class="tick" style="left:80%"></span><span class="tick" style="left:90%"></span><span class="tick" style="left:100%"></span><span class="mark nvd" style="left:20%">N<span class="lbl">NVD</span></span><span class="mark aka" style="left:65%">A<span class="lbl">AKA</span></span></div>
+      </div>
+      <div class="slider">
+        <div class="poles"><span class="l">Přátelský <small style="color:#9a90ad">1.5</small></span><span class="r"><small style="color:#9a90ad">7</small> Autorita</span></div>
+        <div class="track"><span class="tick" style="left:0%"></span><span class="tick" style="left:10%"></span><span class="tick" style="left:20%"></span><span class="tick" style="left:30%"></span><span class="tick" style="left:40%"></span><span class="tick" style="left:50%"></span><span class="tick" style="left:60%"></span><span class="tick" style="left:70%"></span><span class="tick" style="left:80%"></span><span class="tick" style="left:90%"></span><span class="tick" style="left:100%"></span><span class="mark nvd" style="left:15%">N<span class="lbl">NVD</span></span><span class="mark aka" style="left:70%">A<span class="lbl">AKA</span></span></div>
+      </div>
+      <div class="slider">
+        <div class="poles"><span class="l">Hravý <small style="color:#9a90ad">1</small></span><span class="r"><small style="color:#9a90ad">3</small> Seriózní</span></div>
+        <div class="track"><span class="tick" style="left:0%"></span><span class="tick" style="left:10%"></span><span class="tick" style="left:20%"></span><span class="tick" style="left:30%"></span><span class="tick" style="left:40%"></span><span class="tick" style="left:50%"></span><span class="tick" style="left:60%"></span><span class="tick" style="left:70%"></span><span class="tick" style="left:80%"></span><span class="tick" style="left:90%"></span><span class="tick" style="left:100%"></span><span class="mark nvd" style="left:10%">N<span class="lbl">NVD</span></span><span class="mark aka" style="left:30%">A<span class="lbl">AKA</span></span></div>
+      </div>
+      <div class="slider">
+        <div class="poles"><span class="l">Mladý <small style="color:#9a90ad">6.5</small></span><span class="r"><small style="color:#9a90ad">7</small> Vyzrálý</span></div>
+        <div class="track"><span class="tick" style="left:0%"></span><span class="tick" style="left:10%"></span><span class="tick" style="left:20%"></span><span class="tick" style="left:30%"></span><span class="tick" style="left:40%"></span><span class="tick" style="left:50%"></span><span class="tick" style="left:60%"></span><span class="tick" style="left:70%"></span><span class="tick" style="left:80%"></span><span class="tick" style="left:90%"></span><span class="tick" style="left:100%"></span><span class="mark nvd" style="left:65%">N<span class="lbl">NVD</span></span><span class="mark aka" style="left:70%">A<span class="lbl">AKA</span></span></div>
+      </div>
+      <div class="slider">
+        <div class="poles"><span class="l">Konvenční <small style="color:#9a90ad">4</small></span><span class="r"><small style="color:#9a90ad">5</small> Rebelský</span></div>
+        <div class="track"><span class="tick" style="left:0%"></span><span class="tick" style="left:10%"></span><span class="tick" style="left:20%"></span><span class="tick" style="left:30%"></span><span class="tick" style="left:40%"></span><span class="tick" style="left:50%"></span><span class="tick" style="left:60%"></span><span class="tick" style="left:70%"></span><span class="tick" style="left:80%"></span><span class="tick" style="left:90%"></span><span class="tick" style="left:100%"></span><span class="mark nvd" style="left:40%">N<span class="lbl">NVD</span></span><span class="mark aka" style="left:50%">A<span class="lbl">AKA</span></span></div>
+      </div>
+      <div class="slider">
+        <div class="poles"><span class="l">Něžný <small style="color:#9a90ad">4</small></span><span class="r"><small style="color:#9a90ad">8.5</small> Odvážná</span></div>
+        <div class="track"><span class="tick" style="left:0%"></span><span class="tick" style="left:10%"></span><span class="tick" style="left:20%"></span><span class="tick" style="left:30%"></span><span class="tick" style="left:40%"></span><span class="tick" style="left:50%"></span><span class="tick" style="left:60%"></span><span class="tick" style="left:70%"></span><span class="tick" style="left:80%"></span><span class="tick" style="left:90%"></span><span class="tick" style="left:100%"></span><span class="mark nvd" style="left:40%">N<span class="lbl">NVD</span></span><span class="mark aka" style="left:85%">A<span class="lbl">AKA</span></span></div>
+      </div>
+      <div class="slider">
+        <div class="poles"><span class="l">Exkluzivní <small style="color:#9a90ad">4.5</small></span><span class="r"><small style="color:#9a90ad">10</small> Masový</span></div>
+        <div class="track"><span class="tick" style="left:0%"></span><span class="tick" style="left:10%"></span><span class="tick" style="left:20%"></span><span class="tick" style="left:30%"></span><span class="tick" style="left:40%"></span><span class="tick" style="left:50%"></span><span class="tick" style="left:60%"></span><span class="tick" style="left:70%"></span><span class="tick" style="left:80%"></span><span class="tick" style="left:90%"></span><span class="tick" style="left:100%"></span><span class="mark nvd" style="left:45%">N<span class="lbl">NVD</span></span><span class="mark aka" style="left:100%">A<span class="lbl">AKA</span></span></div>
+      </div>
+  </div>
+  <h3>Tonalita shortcut</h3>
+  <div class="quote">„Blízká odborná průvodkyně.“</div>
+  <div class="note proc"><span class="badge proc">V PROCESU</span>Tonality shortcut dotvoří Aneta jako syntézu (v brand sprintu chyběl). Rod k odsouhlasení.</div>
+</div></section>
+
+<!-- ======= KONKURENCE ======= -->
+<section id="konkurence"><div class="wrap">
+  <span class="kicker">Kapitola 7</span>
+  <h2>Kde <span class="hl">stojíme</span></h2>
+  <p class="sub">Tři mapy konkurence — každá jiné osy. AKA míří do kvadrantu evidence + hloubka + systém.</p>
+  <div class="note"><span class="badge k">K ROZHODNUTÍ</span>Mapy předělat: zvolený kvadrant (odborná/systémová/programová) se ukázal jako relativně obsazený, ne bílé místo — možný bias zadání. Přezadat s ručně doplněnými ČR hráči.</div>
+  <h3>Tři negace pro positioning</h3>
+  <ul class="clean">
+    <li><b>Není to jen benefit</b> — terapie a EAP mohou navazovat, ale jádro je změna prostředí.</li>
+    <li><b>Není to jen workshop</b> — vzdělávání je napojené na měření, leadership a implementaci.</li>
+    <li><b>Není to jen audit</b> — data mají otevřít rozhovor a rozhodnutí, ne studený report.</li>
+  </ul>
+  <h3>Hráči k zařazení do map</h3>
+  <p><b>Hlavní konkurenti ČR:</b> Nevyhasni (programy pro firmy a školy), BE-DNA, Soulmio, FBE Praha, Loono.</p>
+  <p><b>Nově doplnit:</b> JuiceUp, NÚDZ, Olga Vlachynská, Jana Neuwerthová + aktéři z rešerše na resilienci.</p>
+  <p class="muted">Komplementy / spojenci: Hedepy, Mindwell, ZAAP/EAP, NÚDZ+Opatruj.se. Globální vzor: Calmer (UK). Anti-vzory: Lyra, Modern Health, BetterUp, Unmind.</p>
+  <div class="note"><span class="badge zmena">ZMĚNA OPROTI v4</span>Loono přeřazeno ze spojenců mezi konkurenty. Nevyhasni přidán jako hlavní konkurent ČR.</div>
+</div></section>
+
+<!-- ======= KOMUNIKACE ======= -->
+<section id="komunikace"><div class="wrap">
+  <span class="kicker">Kapitola 8 · Hlas značky</span>
+  <h2>Komunikace</h2>
+  <div class="cards c3">
+    <div class="card"><span class="tagrole">Pro lídr*yně</span><p>„Duševní zdraví v týmu začíná u vás — naučíme vás, jak na to konkrétně.“</p></div>
+    <div class="card"><span class="tagrole">Pro HR</span><p>„Vyhoření, fluktuace, retention — řešíme přes leadery, ne přes EAP plakát.“</p></div>
+    <div class="card"><span class="tagrole">Pro ESG / CEO</span><p>„Naplňte ‚S‘ pilíř ESRS smysluplně. Měřitelně. Bez greenwashingu.“</p></div>
+  </div>
+  <div class="cards c2" style="margin-top:16px">
+    <div class="card"><h4>Říkáme</h4><p class="muted">„práce může lidi posilovat“ · „měníme prostředí“ · „důkazy říkají…“ · „z WHO / ISO / COPSOQ víme…“ · „konkrétně, hmatatelně“ · „manažer není terapeut, je multiplikátor“</p></div>
+    <div class="card"><h4>Neříkáme</h4><p class="muted">„transformační“ · „14× ROI“ · „global standard“ / „world-class“ · „holistický wellness“ · „změníme váš život“ · „silné stránky“ (Gallup teritorium)</p></div>
+  </div>
+  <div class="note"><span class="badge k">K ROZHODNUTÍ</span>Seznam negací je funkční, ale dohromady zní strojově. Zvážit zlidštění tónu / přesun části jen do interních materiálů.</div>
+</div></section>
+
+<!-- ======= VIZUAL ======= -->
+<section id="vizual"><div class="wrap">
+  <span class="kicker">Kapitola 9</span>
+  <h2>Vizuální <span class="hl">identita</span></h2>
+  <p class="sub">Strategický rámec — ne hotová identita.</p>
+  <p><b>Pracovní paleta:</b> #4A2B6E · #6E4A8E · #7C5EA9 · #C9BBE2 · #F1EFF6 · #E37A4A (accent).</p>
+  <div class="note proc"><span class="badge proc">V PROCESU</span>Paletu a fonty sjednotí Aneta; manuál se pak nechá předělat podle její barevnosti.</div>
+  <h3>Přístupnost — poruchy barvocitu</h3>
+  <p>Vizuál musí fungovat i pro lidi s poruchou barvocitu (≈ 9 % mužů). Odlišení neřešit jen barvou, ale i strukturou, tvarem a kontrastem. Klidnější, dospělejší výraz — žádná infantilní „diskotéka“.</p>
+</div></section>
+
+<!-- ======= PRODUKT ======= -->
+<section id="produkt"><div class="wrap">
+  <span class="kicker">Kapitola 10 · Co prodáváme</span>
+  <h2>Produktová <span class="hl">architektura</span></h2>
+  <div class="note"><span class="badge k">K ROZHODNUTÍ</span><b>Nebudou 3 balíčky.</b> Struktura nabídky k přepracování. Varianty: A) modulová stavebnice + 2 vstupní úrovně · B) jedna škálovatelná cesta (audit → dlouhodobé partnerství) · C) interní rámec, navenek nekomunikovat počet.</div>
+  <p class="muted">Stávající rámec (v4, k přepracování): Basic (3 měsíce) · Premium (9 měsíců) · Premium plus (14 měsíců).</p>
+  <h3>Měření jako produkt — COPSOQ</h3>
+  <p>Měření je produkt, ne metoda. Cyklus před/po intervenci. Priority škály: kvalita vedení, sociální opora, organizační spravedlnost, pracovní tempo, vliv na práci, konflikt rolí, emoční nároky, smysluplnost.</p>
+</div></section>
+
+<!-- ======= CO NEDELA ======= -->
+<section id="hranice"><div class="wrap">
+  <span class="kicker">Kapitola 11 · Hranice a etika</span>
+  <h2>Co Akademie <span class="hl">záměrně nedělá</span></h2>
+  <p class="sub">Stejně důležité jako co děláme. Hranice chrání identitu.</p>
+  <div class="cards c2">
+    <div class="card"><h4>Není terapie</h4><p class="muted">Naučíme rozpoznat krizi a předat člověka dál.</p></div>
+    <div class="card"><h4>Není motivační rétorika</h4><p class="muted">Žádné „silní jste, když chcete“. Stojíme na evidenci.</p></div>
+    <div class="card"><h4>Není checklist</h4><p class="muted">Žádný univerzální postup, stavíme nástroje.</p></div>
+    <div class="card"><h4>Není rychlá oprava</h4><p class="muted">Vyhoření se nezahojí na jednom workshopu.</p></div>
+    <div class="card"><h4>Nestojíme na heuristice</h4><p class="muted">Žádný Gallup, žádné „silné stránky“ jako jádro.</p></div>
+    <div class="card"><h4>Neslibujeme 14× ROI</h4><p class="muted">Realističtější rámec: retence, kultura, udržitelnost.</p></div>
+    <div class="card"><h4>Není wellbeing pod EX</h4><p class="muted">Duševní zdraví je hloubka, ne kapitola.</p></div>
+    <div class="card"><h4>Není polished za každou cenu</h4><p class="muted">Říkáme i to, co je obtížné. Honesty > polish.</p></div>
+  </div>
+</div></section>
+
+</main>
+
+<footer><div class="wrap">
+  Akademie · Nevypusť duši — Brand Manuál V5 (pracovní). Zapracovaná schůzka 22. 6. 2026.<br>
+  Oranžové rámečky = k rozhodnutí · fialové = v procesu.
+</div></footer>
+
+</body>
+</html>
